@@ -6,6 +6,17 @@ import java.util.Queue;
 import java.util.Scanner;
 
 class Ex07_14_M {
+	//설명
+	//다음 그래프에서 1번 정점에서 각 정점으로 가는 최소 이동 간선수를 출력하세요.
+	//1 < 2 > 5
+	//↓ ↘  ↗ ↖↑
+	//3 > 4 > 6
+	
+	//입력
+	//첫째 줄에는 정점의 수 N(1<=N<=20)과 간선의 수 M이 주어진다. 그 다음부터 M줄에 걸쳐 연결정보가 주어진다.
+	
+	//출력
+	//1번 정점에서 각 정점으로 가는 최소 간선 수를 2번 정점부터 차례대로 출력하세요.
 	static int[] dis;
 	static int n, m;
 	static Queue<Integer> Q = new LinkedList<>();

@@ -11,6 +11,12 @@ class Tree {
 }
 
 class Ex07_07 {
+	//설명
+	//아래 그림과 같은 이진트리를 레벨탐색 연습하세요.
+	//         1
+	//     2       3
+	//   4   5   6   7
+	//레벨 탐색 순회 출력 : 1 2 3 4 5 6 7
 	Tree root;
 	
 	public void BFS(Tree tree) {

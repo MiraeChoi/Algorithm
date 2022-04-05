@@ -14,6 +14,12 @@ class Node3 {
 }
 
 class Ex07_07_T {
+	//설명
+	//아래 그림과 같은 이진트리를 레벨탐색 연습하세요.
+	//         1
+	//     2       3
+	//   4   5   6   7
+	//레벨 탐색 순회 출력 : 1 2 3 4 5 6 7
 	Node3 root;
 	
 	public void BFS(Node3 root) {
