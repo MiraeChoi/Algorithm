@@ -41,21 +41,23 @@ class Ex08_15_Review {
 	static int[] combi;
 	static ArrayList<Point15R> hs, pz;
 	
-	public void DFS(int L, int s) {			//L=0, s=0		L=1, s=1		L=2, s=1      ... L=6, s=1
+	public void DFS(int L, int s) {			//L=0, s=0		L=1, s=1		L=2, s=2      			  ... L=4, s=4
 		if(L == m) {
 			int sum = 0;
-			for(Point15R cur : hs) {
+			for(Point15R cur : hs) {																	//cur.x=0, cur.y=1													cur.x=1, cur.y=0
 				int dis = Integer.MAX_VALUE;
-				for(int i : combi) {
-					dis = Math.min(dis, Math.abs(cur.x - pz.get(i).x) + Math.abs(cur.y - pz.get(i).y));
+				for(int i : combi) {																	//i=combi[0] = 0	i=combi[1] = 1				... i=combi[4]		i=combi[0] = 0
+					System.out.print(i + " ");
+					dis = Math.min(dis, Math.abs(cur.x - pz.get(i).x) + Math.abs(cur.y - pz.get(i).y));//dis=|0-0|+|1-2|=1	dis=|0-1|+|1-2|=2 vs 1 = 1		dis = 1			dis=|1-0|+|0-2|=3
 				}
-				sum += dis;
+				System.out.println();
+				sum += dis;																																	//sum = 1
 			}
 			answer = Math.min(answer, sum);
 		} else {
-			for(int i = s; i < len; i++) { //i=0, i<6		i=0, i<6		i=0, i<6
-				combi[L] = i;			   //combi[0] = 0	combi[1] = 0	combi[2] = 0
-				DFS(L+1, i+1);			   //DFS(0+1, 0+1)	DFS(1+1, 0+1)	DFS(2+1, 0+1)
+			for(int i = s; i < len; i++) { //i=0, i<6		i=1, i<6		i=2, i<6
+				combi[L] = i;			   //combi[0] = 0	combi[1] = 1	combi[2] = 2
+				DFS(L+1, i+1);			   //DFS(0+1, 0+1)	DFS(1+1, 1+1)	DFS(2+1, 2+1)
 			}
 		}
 	}
