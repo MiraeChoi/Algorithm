@@ -2,7 +2,7 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T2_6 {
+class T02_06 {
 	static void swap(int[] a, int idx1, int idx2) {
 		int t = a[idx1];
 		a[idx1] = a[idx2];

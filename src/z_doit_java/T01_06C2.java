@@ -2,7 +2,7 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T1_6C2 {
+class T01_06C2 {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		System.out.println("2자리의 정수를 입력하세요.");

@@ -1,6 +1,6 @@
 package z_doit_java;
 
-class T2_8A {
+class T02_08A {
 	public static void main(String[] args) {
 		int digits = 0;
 		String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";

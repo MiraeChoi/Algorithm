@@ -2,7 +2,7 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T1_8 {
+class T01_08 {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		System.out.println("왼쪽 아래가 직각인 이등변 삼각형을 출력합니다.");

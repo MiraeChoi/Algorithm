@@ -1,6 +1,6 @@
 package z_doit_java;
 
-class T2_9 {
+class T02_09 {
 	public static void main(String[] args) {
 		int count = 0;
 		

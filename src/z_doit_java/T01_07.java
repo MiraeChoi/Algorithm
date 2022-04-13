@@ -1,6 +1,6 @@
 package z_doit_java;
 
-class T1_7 {
+class T01_07 {
 	public static void main(String[] args) {
 		System.out.println("----- °ö¼ÀÇ¥ -----");
 		for(int i = 1; i <= 9; i++) {

@@ -2,7 +2,7 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T1_3 {
+class T01_03 {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		System.out.print("정수를 입력하세요. : ");

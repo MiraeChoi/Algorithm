@@ -2,7 +2,7 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T2_8B {
+class T02_08B {
 	public static int cardConvR(int x, int r, char[] d) {
 		int digits = 0;
 		String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";

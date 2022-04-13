@@ -3,7 +3,7 @@ package z_doit_java;
 import java.util.Random;
 import java.util.Scanner;
 
-class T2_5 {
+class T02_05 {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		Random random = new Random();

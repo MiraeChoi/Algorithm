@@ -2,7 +2,7 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T2_4 {
+class T02_04 {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		System.out.print("키의 최댓값을 구합니다.\n사람 수 : ");

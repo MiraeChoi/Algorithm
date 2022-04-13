@@ -1,6 +1,6 @@
 package z_doit_java;
 
-class T2_3 {
+class T02_03 {
 	public static void main(String[] args) {
 		int[] a = {1, 2, 3, 4, 5};
 		int[] b = a.clone();
