@@ -23,23 +23,25 @@ class T05_09P9 {
 
 		Start : while (true) {
 			j = 0;
+			
 			while (true) {
 				while (j < 8) {
-					if (!flag_a[j] && !flag_b[i + j] && !flag_c[i - j + 7]) {
+					if (!flag_a[j] && !flag_b[i+j] && !flag_c[i-j+7]) {
 						pos[i] = j;
-						if (i == 7)							//모든 열에 배치종료
+						
+						if (i == 7)			//모든 열에 배치종료
 							print();
 						else {
-							flag_a[j] = flag_b[i + j] = flag_c[i - j + 7] = true;
-							jstk[i++] = j;					//i열의 행을 Push
+							flag_a[j] = flag_b[i+j] = flag_c[i-j+7] = true;
+							jstk[i++] = j;	//i열의 행을 Push
 							continue Start;
 						}
 					}
 					j++;
 				}
 				if (--i == -1) return;
-				j = jstk[i];								//i열의 행을 Pop
-				flag_a[j] = flag_b[i + j] = flag_c[i - j + 7] = false;
+				j = jstk[i];				//i열의 행을 Pop
+				flag_a[j] = flag_b[i+j] = flag_c[i-j+7] = false;
 				j++;
 			}
 		}
