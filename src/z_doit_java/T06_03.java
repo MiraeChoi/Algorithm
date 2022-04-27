@@ -14,15 +14,17 @@ class T06_03 {
 					arr[j-1] = arr[j];
 					arr[j] = tmp;
 					last = j;
+					System.out.println("last : " + last);
 				}
 			}
 			k = last;
+			System.out.println("★k : " + last);
 		}
 	}
 	
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
-		System.out.println("버블 정렬(버전 1)");
+		System.out.println("버블 정렬(버전 3)");
 		System.out.print("요소 수 : ");
 		int n = kb.nextInt();
 		int[] arr = new int[n];
