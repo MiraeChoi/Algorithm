@@ -2,11 +2,17 @@ package z_doit_java;
 
 import java.util.Scanner;
 
-class T06_09 {
+class T06_09C1 {
 	static void quickSort(int[] arr, int l, int r) {
 		int pl = l;
 		int pr = r;
 		int pivot = arr[(pl+pr)/2];
+		
+		System.out.printf("arr[%d] ~ arr[%d] : {", l, r);
+		for(int i = l; i < r; i++) {
+			System.out.printf("%d, ", arr[i]);
+		}
+		System.out.printf("%d}\n", arr[r]);
 		
 		do {
 			while(arr[pl] < pivot) pl++;
