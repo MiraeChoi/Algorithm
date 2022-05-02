@@ -21,11 +21,11 @@ class T06_11 {
 		merge(a, a.length, b, b.length, c);
 		
 		System.out.println("배열 a와 b를 병합하여 배열 c에 저장했습니다.");
-		System.out.print("배열 a : ");
+		System.out.println("배열 a : ");
 		for(int i = 0; i < a.length; i++) System.out.printf("a[%d] = %d\n", i, a[i]);
-		System.out.print("배열 b : ");
+		System.out.println("배열 b : ");
 		for(int i = 0; i < b.length; i++) System.out.printf("b[%d] = %d\n", i, b[i]);
-		System.out.print("배열 c : ");
+		System.out.println("배열 c : ");
 		for(int i = 0; i < c.length; i++) System.out.printf("c[%d] = %d\n", i, c[i]);
 		
 	}
