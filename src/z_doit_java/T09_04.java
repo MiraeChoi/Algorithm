@@ -3,7 +3,7 @@ package z_doit_java;
 import java.util.Comparator;
 import java.util.Scanner;
 
-class T09_02 {
+class T09_04 {
 	static Scanner kb = new Scanner(System.in);
 	
 	static class Data {
@@ -101,7 +101,7 @@ class T09_02 {
 		Data ptr;				//검색용 데이터 참조
 		Data tmp = new Data();	//입력용 데이터
 		
-		T09_01<Data> list = new T09_01<>();
+		T09_03<Data> list = new T09_03<>(100);
 		
 		do {
 			switch(menu = SelectMenu()) {

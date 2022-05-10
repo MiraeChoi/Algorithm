@@ -3,7 +3,7 @@ package z_doit_java;
 import java.util.Comparator;
 import java.util.Scanner;
 
-class T09_02 {
+class T09_06 {
 	static Scanner kb = new Scanner(System.in);
 	
 	static class Data {
@@ -50,13 +50,15 @@ class T09_02 {
 	enum Menu {
 		ADD_FIRST("머리에 노드 삽입"),
 		ADD_LAST("꼬리에 노드 삽입"),
+		ADD("선택 노드의 바로 뒤에 노드 삽입"),
 		RMV_FIRST("머리 노드 삭제"),
 		RMV_LAST("꼬리 노드 삭제"),
 		RMV_CRNT("선택 노드 삭제"),
 		CLEAR("모든 노드 삭제"),
 		SEARCH_NO("번호로 검색"),
 		SEARCH_NAME("이름으로 검색"),
-		NEXT("선택 노드로 이동"),
+		NEXT("선택 노드를 뒤쪽으로"),
+		PREV("선택 노드를 앞쪽으로"),
 		PRINT_CRNT("선택 노드 출력"),
 		DUMP("모든 노드 출력"),
 		TERMINATE("종료");
@@ -79,7 +81,6 @@ class T09_02 {
 		}
 	}
 	
-	//메뉴 선택
 	static Menu SelectMenu() {
 		int key;
 		do {
@@ -101,7 +102,7 @@ class T09_02 {
 		Data ptr;				//검색용 데이터 참조
 		Data tmp = new Data();	//입력용 데이터
 		
-		T09_01<Data> list = new T09_01<>();
+		T09_05<Data> list = new T09_05<>();
 		
 		do {
 			switch(menu = SelectMenu()) {
@@ -114,6 +115,11 @@ class T09_02 {
 				data = new Data();
 				data.scanData("꼬리에 삽입", Data.NO | Data.NAME);
 				list.addLast(data);
+				break;
+			case ADD : 
+				data = new Data();
+				data.scanData("선택 노드의 바로 뒤에 삽입", Data.NO | Data.NAME);
+				list.add(data);
 				break;
 			case RMV_FIRST :
 				list.removeFirst();
@@ -138,6 +144,9 @@ class T09_02 {
 				break;
 			case NEXT :
 				list.next();
+				break;
+			case PREV :
+				list.prev();
 				break;
 			case PRINT_CRNT :
 				list.printCurrentNode();
