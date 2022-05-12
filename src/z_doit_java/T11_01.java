@@ -84,7 +84,7 @@ class T11_01<K, V> {
 			Node<K, V> p = table[i];
 			System.out.printf("%02d  ", i);
 			while(p != null) {
-				System.out.printf("¡æ %s (%s)  ", p.getKey(), p.getValue());
+				System.out.printf("¡æ %s. %s  ", p.getKey(), p.getValue());
 				p = p.next;
 			}
 			System.out.println();
