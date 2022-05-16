@@ -14,7 +14,10 @@ class SummerT04 {
 //	insert into CART_PRODUCTS2 values(5513, 287, 'Sausages', 3980);
 //	insert into CART_PRODUCTS2 values(5514, 287, 'Coffee', 24800);
 	
-	
+//	SQL 피벗테이블
+//	select name_x, name_y, 장바구니 수
+//	from CART_PRODUCTS2
+//	pivot 
 	
 //	result
 //	NAME_X  NAME Y  장바구니 수
