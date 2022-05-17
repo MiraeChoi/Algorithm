@@ -15,9 +15,16 @@ class SummerT04 {
 //	insert into CART_PRODUCTS2 values(5514, 287, 'Coffee', 24800);
 	
 //	SQL 피벗테이블
+//	pivot : 행을 열로 변환하는 함수
 //	select name_x, name_y, 장바구니 수
 //	from CART_PRODUCTS2
-//	pivot 
+//	pivot
+	
+//	select name as name_x,
+//	name as name_y,
+//	decode(name, 'Coffee', 'C', 'S') as 장바구니수
+//	from CART_PRODUCTS2
+//	order by name;
 	
 //	result
 //	NAME_X  NAME Y  장바구니 수
