@@ -26,6 +26,14 @@ class SummerT04 {
 //	from CART_PRODUCTS2
 //	order by name;
 	
+//	SQL 경우의 수
+//	cube, roll up
+//	select name as name_x,
+//	name as name_y,
+//	decode(name, 'Coffee', 'C', 'S') as 장바구니수
+//	from CART_PRODUCTS2
+//	group by grouping sets(name, name);
+	
 //	result
 //	NAME_X  NAME Y  장바구니 수
 //	Coffee  Sausages 1
