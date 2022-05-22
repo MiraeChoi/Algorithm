@@ -1,6 +1,6 @@
 package programmers;
 
-class SCLevel1_2 {
+class SCLevel1_1_2 {
     public int solution(int left, int right) {
     	int answer = 0;
     	int cnt = 0;
@@ -27,7 +27,7 @@ class SCLevel1_2 {
     }
     
     public static void main(String[] args) {
-    	SCLevel1_2 T = new SCLevel1_2();
+    	SCLevel1_1_2 T = new SCLevel1_1_2();
 		int left = 1;
 		int right = 3;
 		System.out.println(T.solution(left, right));

@@ -1,6 +1,6 @@
 package programmers;
 
-class SCLevel1_1 {
+class SCLevel1_1_1 {
 	public int solution(int n) {
 		int answer = 1;
 		
@@ -17,7 +17,7 @@ class SCLevel1_1 {
 	}
 	
 	public static void main(String[] args) {
-		SCLevel1_1 T = new SCLevel1_1();
+		SCLevel1_1_1 T = new SCLevel1_1_1();
 		int n = 100;
 		System.out.println(T.solution(n));
 	}

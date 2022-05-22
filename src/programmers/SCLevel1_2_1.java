@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.Arrays;
 
-class SCLevel2_1 {
+class SCLevel1_2_1 {
     public int[] solution(int N, int[] stages) {
         int[] answer = new int[N];
         for(int i = 0; i < N; i++) answer[i] = i + 1;
@@ -55,7 +55,7 @@ class SCLevel2_1 {
     }
     
     public static void main(String[] args) {
-		SCLevel2_1 T = new SCLevel2_1();
+		SCLevel1_2_1 T = new SCLevel1_2_1();
 		int N = 4;
 //		int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};	//3 4 2 1 5
 		int[] stages = {4, 4, 4, 4, 4};				//4 1 2 3
