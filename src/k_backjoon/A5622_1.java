@@ -1,5 +1,5 @@
 package k_backjoon;
 
-class A5622 {
+class A5622_1 {
 	
 }
