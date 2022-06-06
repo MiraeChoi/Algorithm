@@ -1,20 +1,17 @@
 package k_backjoon;
 
-import java.io.IOException;
+import java.util.Scanner;
 
 public class A1152_2 {
-	public static void main(String[] args) throws IOException {
-		int c, answer = 0;
-		boolean blank = true;
-		int word = System.in.read();
+	public static void main(String[] args) {
+		int answer = 1;
+		Scanner kb = new Scanner(System.in);
+		String line = kb.nextLine();
+		line = line.trim();
+		System.out.println(line);
 		
-		while((c = System.in.read()) != 13) {	//13 = Enter
-			if(c == ' ') blank = true;			//32 = Space
-			else {
-				if(blank) answer++;
-				blank = false;
-				System.out.println("c : " + c);
-			}
+		for(int i = 0; i < line.length(); i++) {
+			if(line.charAt(i) == ' ') answer++;
 		}
 		System.out.println(answer);
 	}
