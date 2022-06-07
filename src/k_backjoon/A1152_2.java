@@ -7,12 +7,16 @@ public class A1152_2 {
 		int answer = 1;
 		Scanner kb = new Scanner(System.in);
 		String line = kb.nextLine();
-		line = line.trim();
-		System.out.println(line);
 		
-		for(int i = 0; i < line.length(); i++) {
-			if(line.charAt(i) == ' ') answer++;
+		if(line.equals(" ")) System.out.println(0);
+		else {
+			line = line.trim();
+			System.out.println(line);
+			
+			for(int i = 0; i < line.length(); i++) {
+				if(line.charAt(i) == ' ') answer++;
+			}
+			System.out.println(answer);
 		}
-		System.out.println(answer);
 	}
 }
