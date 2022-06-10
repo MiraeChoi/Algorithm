@@ -9,9 +9,21 @@ class A2941_1 {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		String[] apb2 = {"c=", "c-", "d-", "lj", "nj", "s=", "z="};
+		char[] arr1 = {'c', 'c', 'd', 'd', 'l', 'n', 's', 'z'};
+		char[] arr2 = {'=', };
 		String apb3 = "dz=";
 		String word = kb.next();
 		int answer = word.length();
+		int lt = 0;
+		int rt = lt;
+		
+//		int i = 0;
+//		while(word.length() > 0) {
+//			if(word.contains(apb3)) {
+//				answer -= 2;
+//				word -= "";
+//			}
+//		}
 		
 		if(word.contains(apb3)) answer -= 2;
 		
