@@ -17,6 +17,17 @@ class A2941_1 {
 		int lt = 0;
 		int rt = lt;
 		
+		for(int i = 0; i < word.length(); i++) {
+			if(word.charAt(i) == arr1[lt]) {
+				rt = i + 1;
+				if(word.charAt(rt) == arr2[lt]) {
+					lt++;
+					rt = lt + 1;
+					
+				}
+			} else answer++;
+		}
+		
 //		int i = 0;
 //		while(word.length() > 0) {
 //			if(word.contains(apb3)) {
