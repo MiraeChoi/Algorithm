@@ -1,5 +1,5 @@
 package k_backjoon;
 
-class A1316_1 {
+class A1712 {
 	
 }
