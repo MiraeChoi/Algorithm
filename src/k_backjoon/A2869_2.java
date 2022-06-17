@@ -6,19 +6,18 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class A2869_2 {
-	//틀렸습니다
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		int a = Integer.parseInt(st.nextToken());
-		int b = Integer.parseInt(st.nextToken());
-		int v = Integer.parseInt(st.nextToken());
+		double a = Integer.parseInt(st.nextToken());
+		double b = Integer.parseInt(st.nextToken());
+		double v = Integer.parseInt(st.nextToken());
+		System.out.println("v-b : " + (v - b));
+		System.out.println("a-b : " + (a - b));
+		System.out.println("v-b/a-b : " + ((v-b) / (a-b)));
 		
 		if(a == v) System.out.println(1);
-		else {
-			String str = "" + a;
-			double tmp = Math.round((float)(v-a) / (float)(a-b) / Math.pow(10, str.length()-1)) * Math.pow(10, str.length()-1);
-			System.out.println(Math.round((tmp < 1 ? 1 : tmp) + 1));
-		}
+		else System.out.println((int)Math.ceil((v-b) / (a-b))); //올림
 	}
 }
