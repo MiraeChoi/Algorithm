@@ -2,7 +2,7 @@ package k_backjoon;
 
 import java.util.Scanner;
 
-public class A10250 {
+public class A10250_1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
