@@ -3,6 +3,7 @@ package k_backjoon;
 import java.util.Scanner;
 
 public class A10250_1 {
+	//맞았습니다!!
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
@@ -22,7 +23,9 @@ public class A10250_1 {
 				}
 				System.out.println(j + " : " + lt + "/" + rt);
 			}
-			answer[i] = Integer.parseInt(lt + "0" + rt);
+			if(lt == 0) lt = 1;
+			if(rt >= 10) answer[i] = Integer.parseInt(lt + "" + rt);
+			else answer[i] = Integer.parseInt(lt + "0" + rt);
 		}
 		for(int x : answer) System.out.println(x);
 	}
