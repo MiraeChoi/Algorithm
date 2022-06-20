@@ -12,7 +12,7 @@ class A10250_2 {
 		int t = Integer.parseInt(br.readLine());
 		int h, w, n;
 		
-		for (int i = 0; i < t; i++) {
+		for(int i = 0; i < t; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());		//1st							2nd
 			h = Integer.parseInt(st.nextToken());							//6								30
 			w = Integer.parseInt(st.nextToken());							//12							50
