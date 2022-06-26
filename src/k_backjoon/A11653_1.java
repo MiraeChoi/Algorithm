@@ -10,7 +10,7 @@ public class A11653_1 {
 		int n = Integer.parseInt(br.readLine());
 		if(n == 1) return;
 		else {
-			
+			//
 		}
 	}
 }
