@@ -5,23 +5,25 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class A1929_1 {
-	//시간 초과
+public class A1929_2 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		
 		int m = Integer.parseInt(st.nextToken());
 		int n = Integer.parseInt(st.nextToken());
+		boolean[] prime = new boolean[n+1];
 		
-		out : for(int i = m; i <= n; i++) {
-			if(i == 1) continue;
-			if(i == 2) System.out.println(2);
-			if(i % 2 == 0) continue;
-			for(int j = 3; j < i; j += 2) {
-				if(i % j == 0) continue out;
-			}
-			System.out.println(i);
-		}
-		br.close();
-	}
+        for(int i = 2; i <= n; i++) {
+        	if(!prime[i]) {
+        		if(i >= m) sb.append(i).append("\n");
+        		for(int j = i + i; j <= n; j += i) {
+        			prime[j] = true;
+        		}
+        	}
+        }
+        System.out.println(sb);
+    }
 }
