@@ -33,18 +33,21 @@ class A9020_1 {
 		
 		for(int i = 0; i < T; i++) {
 			int n = Integer.parseInt(br.readLine());
-			int lt = 2, rt = 3;
-			if(lt + rt < n) {
-				for(int j = 3; j < prime.length; j++) {
-					if(!prime[j]) {
-						//문제풀이 중 . . .
-					}
+			int lt = 0, rt = 1;
+			if(np[lt] + np[rt] < n) {
+				rt++;
+				if(rt == len - 1) {
+					rt = 1;
+					lt++;
 				}
 			} else if(lt + rt > n) {
-				
+				rt = 1;
+				lt++;
 			} else {
 				sb.append(lt + " " + rt + "\n");
 			}
 		}
+		System.out.println(sb);
+		br.close();
 	}
 }
