@@ -26,11 +26,7 @@ class A9020_1 {
 				idx++;
 			}
 		}
-		
-		for(int i = 0; i < len; i++) {
-			System.out.println(i + " : " + np[i]);
-		}
-		
+		//for(int i = 0; i < len; i++) System.out.println(i + " : " + np[i]);
 		for(int i = 0; i < T; i++) {
 			int n = Integer.parseInt(br.readLine());
 			int lt = 0, rt = 1;
@@ -40,12 +36,13 @@ class A9020_1 {
 					rt = 1;
 					lt++;
 				}
-			} else if(lt + rt > n) {
+			} else if(np[lt] + np[rt] > n) {
 				rt = 1;
 				lt++;
 			} else {
 				sb.append(lt + " " + rt + "\n");
 			}
+			System.out.println("lt & rt : " + np[lt] + " / " + np[rt]);
 		}
 		System.out.println(sb);
 		br.close();
