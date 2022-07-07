@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 class A9020_1 {
+	//Æ²·È½À´Ï´Ù.
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
@@ -26,23 +27,39 @@ class A9020_1 {
 				idx++;
 			}
 		}
-		//for(int i = 0; i < len; i++) System.out.println(i + " : " + np[i]);
+		
 		for(int i = 0; i < T; i++) {
 			int n = Integer.parseInt(br.readLine());
 			int lt = 0, rt = 1;
-			if(np[lt] + np[rt] < n) {
-				rt++;
-				if(rt == len - 1) {
-					rt = 1;
+			int p1 = 0, p2 = 0;
+			int min = Integer.MAX_VALUE;
+			
+			while(lt < np.length && np[lt] < n) {
+				if(rt == np.length - 1) {
 					lt++;
+					rt = 0;
 				}
-			} else if(np[lt] + np[rt] > n) {
-				rt = 1;
-				lt++;
-			} else {
-				sb.append(lt + " " + rt + "\n");
+				if(lt == np.length) break;
+				if(np[lt] + np[rt] < n) {
+					rt++;
+					if(rt == len - 1) {
+						rt = 0;
+						lt++;
+					}
+				} else if(np[lt] + np[rt] > n) {
+					rt = 0;
+					lt++;
+				} else {
+					if(Math.abs(np[rt] - np[lt]) < min) {
+						min = np[rt] - np[lt];
+						p1 = np[lt];
+						p2 = np[rt];
+					}
+					lt++;
+					rt = 0;
+				}
 			}
-			System.out.println("lt & rt : " + np[lt] + " / " + np[rt]);
+			sb.append(p1 + " " + p2 + "\n");
 		}
 		System.out.println(sb);
 		br.close();
