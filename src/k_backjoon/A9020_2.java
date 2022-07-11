@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 class A9020_2 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
@@ -31,14 +32,15 @@ class A9020_2 {
 				int n1 = idx - 1;
 				int n2 = idx + 1;
 				while(true) {
-					while(prime[n1] && n1 >= 0) n1--;
-					while(prime[n2] && n2 <= max) n2++;
+					while(prime[n1]) n1--;
+					while(prime[n2]) n2++;
+					if(n1 < 2 || n2 > max) break;
 					if(n1 + n2 == arr[i]) {
 						sb.append(n1 + " " + n2 + "\n");
 						break;
-					} else {
-						n1--; n2++;
-					}
+					} else if(n1 + n2 > arr[i]) {
+						n1--;
+					} else n2++;
 				}
 			}
 		}
