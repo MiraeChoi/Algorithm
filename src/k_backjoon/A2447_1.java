@@ -9,6 +9,7 @@ class A2447_1 {
 	static StringBuilder sb = new StringBuilder();
 	static int num, num_3;
 	static int x = 0, y = 1;
+	static int xcnt = 1, ycnt = 1;
 	
 	public static void star() {
 		x++;
