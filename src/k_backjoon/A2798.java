@@ -18,6 +18,16 @@ public class A2798 {
 		c1 = c2 - 1;
 		c3 = c2 + 1;
 		int answer = 0;
-		
+		for(int i = 0; i < n; i++) {
+			answer = arr[c1] + arr[c2] + arr[c3];
+			if(answer == m) break;
+			else if(answer > m) {
+				
+			}
+			else if(answer < m) {
+				
+			}
+		}
+		System.out.println(answer);
 	}
 }
