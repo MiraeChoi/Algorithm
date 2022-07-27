@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class A2798_1 {
-	//틀렸습니다
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -20,6 +20,20 @@ public class A2798_1 {
 		while(true) {
 			int sum = arr[c1] + arr[c2] + arr[c3];
 			System.out.println(c1 + " / " + c2 + " / " + c3);
+			if(sum > m) {
+				c3++;
+				if(c3 == n) {
+					c2++;
+					c3 = c2 + 1;
+					if(c2 == n-1) {
+						c1++;
+						if(c1 == n-2) break;
+						c2 = c1 + 1;
+						c3 = c2 + 1;					
+					}
+				}
+				continue;
+			}
 			if(Math.abs(m - answer) > Math.abs(m - sum)) answer = sum;
 			if(answer == m) break;
 			c3++;
