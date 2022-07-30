@@ -24,17 +24,5 @@ class A2231_1 {
 			}
 		}
 		System.out.println(0);
-//		for(int i = n; i > 1; i--) {
-//			sum = i;
-//			System.out.println("i : " + i);
-//			String tmp = i + "";
-//			for(int j = 0; j < tmp.length(); j++) {
-//				sum += Integer.parseInt(tmp.substring(j, j + 1));
-//				System.out.println("sum : " + sum);
-//			}
-//			if(sum == n) answer = Math.min(answer, i);
-//		}
-//		if(answer != n) System.out.println(answer);
-//		else System.out.println(0);
 	}
 }
