@@ -8,6 +8,10 @@ class A11729 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		
+		int x, y;
+		while(true) {
+			//하노이의 탑
+			
+		}
 	}
 }
