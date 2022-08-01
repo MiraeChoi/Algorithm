@@ -9,7 +9,13 @@ class A2447_2 {
 	static int num;
 	
 	public static void makeStar() {
-		
+		int x = 1, y = 1;
+		int xcnt = 1, ycnt = 1;
+		while(true) {
+			if(x % 3 != 0 && y % 3 != 0) {
+				
+			}
+		}
 	}
 	
 	public static void main(String[] args) throws IOException {
