@@ -11,10 +11,21 @@ class A2447_2 {
 	public static void makeStar() {
 		int x = 1, y = 1;
 		int xcnt = 1, ycnt = 1;
-		while(true) {
-			if(x % 3 != 0 && y % 3 != 0) {
-				
+		int center = num / 2 + 1;
+		for(int i = 1; i <= num; i++) {
+			xcnt = 1;
+			for(int j = 1; j <= num; j++) {
+//				if()
+				if(i % 3 == 2) {
+					if(j % 3 != 2) sb.append('*');
+					else sb.append(' ');
+				}
+				else if(j % 3 != 2) sb.append('*');
+				else sb.append(' ');
+				if(j % 3 == 0) xcnt++;
 			}
+			sb.append('\n');
+			ycnt++;
 		}
 	}
 	
@@ -22,5 +33,6 @@ class A2447_2 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		num = Integer.parseInt(br.readLine());
 		makeStar();
+		System.out.println(sb);
 	}
 }
