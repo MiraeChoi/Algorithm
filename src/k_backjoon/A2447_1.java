@@ -5,30 +5,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 class A2447_1 {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static StringBuilder sb = new StringBuilder();
-	static int num, num_3;
-	static int x = 0, y = 1;
-	static int xcnt = 1, ycnt = 1;
-	
-	public static void star() {
-		x++;
-		if(x % 3 == 2 && y % 3 == 2) sb.append(' ');
-		else sb.append('*');
-		if(x == num) {
-			sb.append('\n');
-			y++;
-			x = 0;
-		}
-		if(y > num) return;
-		else star();
-	}
-	
 	public static void main(String[] args) throws IOException {
-		num = Integer.parseInt(br.readLine());
-		num_3 = num / 3;
-		star();
-		System.out.println(sb);
-		br.close();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int num = Integer.parseInt(br.readLine());
+		char[][] syso = new char[num+1][num+1];
+		for(int i = 1; i <= num; i++) {
+			for(int j = 1; j <= num; j++) syso[i][j] = '*';
+		}
+		int cur = num / 3;
+		while(cur >= 3) {
+			for(int i = cur + 1; i <= cur * 2; i++) {
+				for(int j = cur + 1; j <= cur * 2; j++) {
+					syso[i][j] = ' ';
+				}
+			}
+			cur = cur / 3;
+			System.out.println(cur);
+		}
+		for(int i = 1; i <= num; i++) {
+			for(int j = 1; j <= num; j++) System.out.print(syso[i][j]);
+			System.out.println();
+		}
 	}
 }
