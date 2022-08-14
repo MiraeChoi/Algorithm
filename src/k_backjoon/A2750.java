@@ -11,7 +11,16 @@ class A2750 {
 		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];
 		for(int i = 0; i < n; i++) arr[i] = Integer.parseInt(br.readLine());
-		Arrays.sort(arr);
+		//»ğÀÔ Á¤·Ä
+		for(int i = 1; i < n; i++) {
+			for(int j = i - 1; j < n - 1; j++) {
+				if(arr[i] > arr[j]) {
+					int tmp = arr[j];
+					arr[j] = arr[i];
+					arr[i] = tmp;
+				}
+			}
+		}
 		for(int i = 0; i < n; i++) System.out.println(arr[i]);
 	}
 }
