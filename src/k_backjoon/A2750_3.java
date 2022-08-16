@@ -6,28 +6,26 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-class A2750_1 {
+public class A2750_3 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];
 		for(int i = 0; i < n; i++) arr[i] = Integer.parseInt(br.readLine());
-		//선택 정렬
-		for(int i = 0; i < n; i++) {
-			int min = arr[i];
-			int idx = i;
-			for(int j = i; j < n; j++) {
-				if(min > arr[j]) {
-					min = arr[j];
-					idx = j;
+		//삽입 정렬
+		for(int i = 1; i < n; i++) {
+			for(int j = 0; j < n - 1; j++) {
+				if(arr[j] > arr[j + 1]) {
+					int tmp = arr[j + 1];
+					arr[j + 1] = arr[j];
+					arr[j] = tmp;
 				}
 			}
-			arr[idx] = arr[i];
-			arr[i] = min;
-			sb.append(arr[i] + "\n");
 		}
-		System.out.println(sb);
+		for(int i = 0; i < n; i++) bw.append(arr[i] + "\n");
+		bw.flush();
+		bw.close();
 		br.close();
 	}
 }
