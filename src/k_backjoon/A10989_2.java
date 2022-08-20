@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 class A10989_2 {
 	public static void main(String[] args) throws IOException {
+		//카운팅 정렬
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		int n = Integer.parseInt(br.readLine());
