@@ -19,21 +19,17 @@ class A2108 {
 		System.out.println(Math.round((float)sum / (float)n));
 		System.out.println(arr[n/2]);
 		//최빈값을 출력한다. 여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.
-		mode = arr[0];
-		int cnt = 0;
-		for(int i = 0; i < n-1; i++) {
-			if(arr[i] == arr[i+1]) {
-				while(arr[i] == arr[i+1]) {
-					cnt++;
-					i++;
+		int[] cnt = new int[arr[n-1] + 1];
+		for(int i = 0; i < n; i++) {
+			cnt[arr[i]]++;
+			for(int j = 0; j <= i; j++) {
+				if(i != j) {
+					if(arr[i] == arr[j]) cnt[arr[i]]++;
 				}
 			}
-			if(cnt == 0) {
-				System.out.println(mode);
-				break;
-			}
-			cnt = 0;
 		}
+		//최빈값 출력
+		
 		System.out.println(arr[n-1] - arr[0]);
 	}
 }
