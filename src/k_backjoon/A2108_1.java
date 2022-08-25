@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-class A2108 {
+class A2108_1 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
@@ -18,18 +18,20 @@ class A2108 {
 		Arrays.sort(arr);
 		System.out.println(Math.round((float)sum / (float)n));
 		System.out.println(arr[n/2]);
-		//최빈값을 출력한다. 여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.
-		int[] cnt = new int[arr[n-1] + 1];
+		//최빈값 출력은 카운팅 정렬로
+		int[] cnt = new int[n];
 		for(int i = 0; i < n; i++) {
-			cnt[arr[i]]++;
+			cnt[i]++;
 			for(int j = 0; j <= i; j++) {
 				if(i != j) {
-					if(arr[i] == arr[j]) cnt[arr[i]]++;
+					if(arr[i] == arr[j]) cnt[i]++;
 				}
 			}
 		}
 		//최빈값 출력
-		
+		for(int i = 0; i < cnt.length; i++) {
+			System.out.println(arr[i] + " : " + cnt[i]);
+		}
 		System.out.println(arr[n-1] - arr[0]);
 	}
 }
