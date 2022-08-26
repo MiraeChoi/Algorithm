@@ -46,7 +46,7 @@ public class A2108_2 {
 					flag = true;	//첫 등장이므로 true로 변경
 				}
 				//이전 최빈값 최댓값과 동일한 경우면서 한 번만 중복되는 경우 
-				else if(mode_max == arr[i] && flag == true) {																							//mode_max == arr[3999] && flag = true
+				else if(mode_max == arr[i] && flag) {																							//mode_max == arr[3999] && flag = true
 					mode = i - 4000;																													//mode = -1
 					flag = false;
 				}
