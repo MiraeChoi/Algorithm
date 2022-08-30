@@ -17,8 +17,8 @@ class xy11651 implements Comparable<xy11651>{
 
 	@Override
 	public int compareTo(xy11651 o) {
-		if(o.x == this.x) return o.y - this.y;
-		else return o.x - this.x;
+		if(this.y == o.y) return this.x - o.x;
+		else return this.y - o.y;
 	}
 }
 
