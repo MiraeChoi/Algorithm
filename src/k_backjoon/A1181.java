@@ -19,20 +19,19 @@ class A1181 {
 		
 		String[] result = new String[n];
 		int idx = 0;
+		Arrays.sort(arr);
 		for(int i = 1; i <= max; i++) {
-			int cnt = idx;
 			for(int j = 0; j < n; j++) {
-				if(arr[i].length() == i) {
-					result[idx++] = arr[i];
-				}
-			}
-			for(int j = cnt; j <= idx; j++) {
-				//sort
+				if(arr[j].length() == i) result[idx++] = arr[j];
 			}
 		}
-		Arrays.sort(arr);
-		
-		for(int i = 0; i < n; i++) sb.append(arr[i]).append('\n');
+		String tmp = result[0];
+		sb.append(result[0]);
+		for(int i = 1; i < n; i++) {
+			if(!tmp.equals(arr[i])) sb.append(result[i]).append('\n');
+			else i++;
+			tmp = result[i];
+		}
 		System.out.println(sb);
 	}
 }
