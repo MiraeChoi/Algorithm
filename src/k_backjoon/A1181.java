@@ -26,7 +26,7 @@ class A1181 {
 			}
 		}
 		String tmp = result[0];
-		sb.append(result[0]);
+		sb.append(result[0]).append('\n');
 		for(int i = 1; i < n; i++) {
 			if(!tmp.equals(arr[i])) sb.append(result[i]).append('\n');
 			else i++;
