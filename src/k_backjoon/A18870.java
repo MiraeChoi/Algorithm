@@ -17,16 +17,29 @@ public class A18870 {
 			max = Math.max(max, arr[i]);
 			min = Math.min(min, arr[i]);
 		}
-		int[] cnt = new int[max - min + 1];
-		for(int i = 0; i < n; i++) {
-			cnt[arr[i] - min]++;
-			System.out.println("È®ÀÎ : " + (arr[i] - min));
-		}
-		
 		int[] res = new int[n];
-		for(int i = n-1; i >= 0; i--) {
-			res[cnt[arr[i] - min]] = arr[i];
+		for(int i = 0; i < n; i++) {
+			int cnt = 0;
+			for(int j = 0; j < n; j++) {
+				if(i != j) {
+					if(arr[i] > arr[j]) cnt++;
+				}
+			}
+			res[i] = cnt;
 		}
 		for(int i = 0; i < n; i++) System.out.print(res[i] + " ");
+//		int[] cnt = new int[max - min + 1];
+//		System.out.println("min : " + min);
+//		for(int i = 0; i < n; i++) cnt[arr[i] - min]++;
+//		for(int i = 1; i < cnt.length; i++) cnt[i] += cnt[i-1];
+//		int[] res = new int[n];
+//		for(int i = n-1; i >= 0; i--) res[--cnt[arr[i] - min]] = arr[i];
+//		
+//		StringBuilder sb = new StringBuilder();
+//		for(int i = 0; i < n; i++) System.out.print(res[i] + " ");
+//		for(int i = 0; i < n; i++) {
+//			sb.append(arr[res[i]]).append(' ');
+//		}
+//		System.out.println(sb);
 	}
 }
