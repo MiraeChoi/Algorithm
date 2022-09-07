@@ -6,48 +6,37 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class A18870_1 {
+	//시간 초과 ㅠㅠ
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];
-		int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
 		for(int i = 0; i < n; i++) {
-			arr[i] = Integer.parseInt(st.nextToken());
-			max = Math.max(max, arr[i]);
-			min = Math.min(min, arr[i]);
+			int tmp = Integer.parseInt(st.nextToken());
+			arr[i] = tmp;
+			max = Math.max(max, tmp);
+			min = Math.min(min, tmp);
 		}
-//		int[] res = new int[n];
-//		for(int i = 0; i < n; i++) {
-//			int cnt = 0;
-//			for(int j = 0; j < n; j++) {
-//				if(i != j) {
-//					if(arr[i] > arr[j]) cnt++;
-//				}
-//			}
-//			res[i] = cnt;
-//		}
-		int[] cnt = new int[max - min + 1];
-		System.out.println("min : " + min);
-		for(int i = 0; i < n; i++) cnt[arr[i] - min]++;
-		
+		System.out.println(max + " / " + min);
 		int[] res = new int[n];
-		int num = 0;
-		for(int i = 0; i <= max - min; i++) {
-			if(cnt[i] > 0) {
-				res[cnt[arr[i] - min]] = num;
-				num++;
+		for(int i = 0; i < n; i++) res[i] = Integer.MAX_VALUE;
+		int val = 0;
+		for(int i = min - min; i <= max - min; i++) {
+			int cnt = 0;
+			for(int j = 0; j < n; j++) {
+				System.out.println("arr[" + j + "] : " + arr[j]);
+				if(arr[j] - min == i && res[j] == Integer.MAX_VALUE) {
+					cnt++;
+					res[j] = val;
+				}
 			}
+			if(cnt > 0) val++;
 		}
-		
-//		for(int i = 1; i < cnt.length; i++) cnt[i] += cnt[i-1];
-//		int[] res = new int[n];
-//		for(int i = n-1; i >= 0; i--) res[--cnt[arr[i] - min]] = arr[i];
-//		
 		StringBuilder sb = new StringBuilder();
-		for(int i = 0; i < n; i++) System.out.print(res[i] + " ");
 		for(int i = 0; i < n; i++) {
-			sb.append(arr[res[i]]).append(' ');
+			sb.append(res[i]).append(' ');
 		}
 		System.out.println(sb);
 	}
