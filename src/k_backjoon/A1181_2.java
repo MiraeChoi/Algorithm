@@ -15,7 +15,8 @@ class Sort1181_2 implements Comparable<Sort1181_2>{
 
 	@Override
 	public int compareTo(Sort1181_2 o) {
-		return this.s.length() - o.s.length();
+		if(this.s.length() == o.s.length()) return -1;
+		else return this.s.length() - o.s.length();
 	}
 }
 
@@ -25,9 +26,14 @@ class A1181_2 {
 		StringBuilder sb = new StringBuilder();
 		int n = Integer.parseInt(br.readLine());
 		ArrayList<Sort1181_2> arr = new ArrayList<>();
-//		String[] arr = new String[n];
 		for(int i = 0; i < n; i++) arr.add(new Sort1181_2(br.readLine()));
 		Collections.sort(arr);
-		for(int i = 0; i < n; i++) System.out.println(arr.get(i).s);
+		for(int i = 0; i < n-1; i++) {
+			System.out.println(arr.get(i).s);
+			if(arr.get(i).s.equals(arr.get(i+1).s)) {
+				while(!arr.get(i).s.equals(arr.get(i+1).s)) i++;
+			}
+		}
+		if(arr.get(n-1).s.equals(arr.get(n-2).s)) System.out.println(arr.get(n-1).s);
 	}
 }
