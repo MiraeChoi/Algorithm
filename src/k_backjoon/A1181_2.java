@@ -26,14 +26,12 @@ class A1181_2 {
 		StringBuilder sb = new StringBuilder();
 		int n = Integer.parseInt(br.readLine());
 		ArrayList<Sort1181_2> arr = new ArrayList<>();
-		for(int i = 0; i < n; i++) arr.add(new Sort1181_2(br.readLine()));
-		Collections.sort(arr);
-		for(int i = 0; i < n-1; i++) {
-			System.out.println(arr.get(i).s);
-			if(arr.get(i).s.equals(arr.get(i+1).s)) {
-				while(!arr.get(i).s.equals(arr.get(i+1).s)) i++;
-			}
+		for(int i = 0; i < n; i++) {
+			String tmp = br.readLine();
+			if(!arr.contains(tmp)) arr.add(new Sort1181_2(tmp));
 		}
-		if(arr.get(n-1).s.equals(arr.get(n-2).s)) System.out.println(arr.get(n-1).s);
+		Collections.sort(arr);
+		for(Sort1181_2 x : arr) sb.append(x.s).append('\n');
+		System.out.println(sb);
 	}
 }
