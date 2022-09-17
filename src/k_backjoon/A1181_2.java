@@ -4,34 +4,35 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-
-class Sort1181_2 implements Comparable<Sort1181_2>{
-	String s;
-	
-	public Sort1181_2(String s) {
-		this.s = s;
-	}
-
-	@Override
-	public int compareTo(Sort1181_2 o) {
-		if(this.s.length() == o.s.length()) return -1;
-		else return this.s.length() - o.s.length();
-	}
-}
 
 class A1181_2 {
+	//시간 초과
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		int n = Integer.parseInt(br.readLine());
-		ArrayList<Sort1181_2> arr = new ArrayList<>();
+		ArrayList<String> arr = new ArrayList<>();
 		for(int i = 0; i < n; i++) {
 			String tmp = br.readLine();
-			if(!arr.contains(tmp)) arr.add(new Sort1181_2(tmp));
+			if(!arr.contains(tmp)) arr.add(tmp);
 		}
-		Collections.sort(arr);
-		for(Sort1181_2 x : arr) sb.append(x.s).append('\n');
+		for(int i = 0; i < arr.size(); i++) {
+			for(int j = i + 1; j < arr.size(); j++) {
+				if(arr.get(i).length() > arr.get(j).length()) {
+					String s = arr.get(i);
+					arr.set(i, arr.get(j));
+					arr.set(j, s);
+				} else if(arr.get(i).length() == arr.get(j).length()) {
+					int cpr = arr.get(i).compareTo(arr.get(j));
+					if(cpr > 0) {
+						String s = arr.get(i);
+						arr.set(i, arr.get(j));
+						arr.set(j, s);
+					}
+				}
+			}
+		}
+		for(String x : arr) sb.append(x).append('\n');
 		System.out.println(sb);
 	}
 }
