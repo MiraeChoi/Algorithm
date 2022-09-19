@@ -14,6 +14,13 @@ class A24060 {
 		int[] arr = new int[n];
 		st = new StringTokenizer(br.readLine());
 		for(int i = 0; i < n; i++) arr[i] = Integer.parseInt(st.nextToken());
-		
+		while(k >= 0) {
+			int cnt = 0;
+			int cur = arr[cnt];
+			for(int i = arr[0]; i < n; i++) {
+				
+			}
+			k--;
+		}
 	}
 }
