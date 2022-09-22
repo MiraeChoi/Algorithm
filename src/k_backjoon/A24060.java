@@ -34,12 +34,15 @@ class A24060 {
 			if(arr[i] <= arr[j]) tmp[t++] = arr[i++];
 			else tmp[t++] = arr[j++];
 		}
+		System.out.println("tmp[t++] : " + tmp[t]);
+		System.out.println("arr[j++] : " + arr[j]);
 		System.out.println("iIiIiIi : " + i);
 		System.out.println("TtTtTtT : " + t);
 		while(i <= q) tmp[t++] = arr[i++];
 		while(j <= r) tmp[t++] = arr[j++];
 		System.out.println("i & t : " + i + " & " + t);
 		while(i <= r) arr[i++] = tmp[t++];
+		System.out.println("------------------------");
 		System.out.println("중간 결산");
 		System.out.print("arr : ");
 		for(int idx = 0; idx < arr.length; idx++) {
