@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class A24060 {
+class A24060_1 {
 	public static void merge_sort(int[] arr, int p, int r) {
 		System.out.println("p & r : " + p + " " + r);
 		if(p < r) {
@@ -64,6 +64,6 @@ class A24060 {
 		st = new StringTokenizer(br.readLine());
 		for(int i = 0; i < n; i++) arr[i] = Integer.parseInt(st.nextToken());
 		merge_sort(arr, 0, n-1);
-		System.out.println(arr[n % k]);
+		System.out.println(arr[k % n]);
 	}
 }
