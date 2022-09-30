@@ -14,11 +14,12 @@ class A10816_3 {
         for(int i = 0; i < m; i++) sb.append(cnt[readInt() + 10000000]).append(' ');
         System.out.println(sb);
     }
-
+    
     static int readInt() throws IOException {
         int n = 0;
         boolean isNegative = false;
         while(true) {
+        	//input : ASKII code
             int input = System.in.read();
             if(input != 32 || input != 13) System.out.println("input : " + input);
             if(input <= 32) return isNegative ? n * -1 : n;
