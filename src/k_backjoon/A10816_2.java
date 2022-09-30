@@ -3,13 +3,13 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class A10816_2 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int[] numSave = new int[20000000];
+		int[] numSave = new int[20000001];
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int[] card = new int[n];
