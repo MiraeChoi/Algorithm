@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 //5 7
 //4 5 1 3 2
 class A24060_3 {
-	public static int[] arr, tmp;					//arr = {4, 5, 1, 3, 2}, tmp = {0, 0, 0, 0, 0}
+	public static int[] arr, tmp;					//arr = {4 5 1 3 2}, tmp = {0 0 0 0 0}																	tmp = {4 5 0 0 0}																arr = {1 5 1 3 2}, tmp = {1 5 1 0 0}
 	public static int n, k, cnt = 0, answer = 0;
 	
 	public static void merge_sort(int p, int r) {	//p = 0, r = 5-1 = 4	p = 0, r = 2		p = 0, r = 1												p = 0, r = 2
@@ -23,20 +23,20 @@ class A24060_3 {
 	
 	public static void merge(int p, int q, int r) {												//p = 0, q = 0, r = 1										p = 0, q = 1, r = 2
 		int i = p, j = q + 1, t = 0;															//i = 0, j = 0+1 = 1, t = 0									i = 0, j = 1+1 = 2, t = 0
-		while(i <= q && j <= r) {																//0 <= 0 && 1 <= 1											
-			if(arr[i] <= arr[j]) tmp[t++] = arr[i++];											//(arr[0] <= arr[1] -> 4 <= 5) tmp[0++] = arr[0++] = 4
-			else tmp[t++] = arr[j++];
-		}																						//t = 1, i = 1
-		while(i <= q) tmp[t++] = arr[i++];														//(1 <= 0)
-		while(j <= r) tmp[t++] = arr[j++];														//(1 <= 1) tmp[1++] = arr[1++] = 5
-		i = p; t = 0;																			//i = 0, t = 0 / j = 2
-		while(i <= r) {																			//(0 <= 1)							(1 <= 1)
-			cnt++;																				//cnt = 1							cnt = 2
+		while(i <= q && j <= r) {																//0 <= 0 && 1 <= 1											0 <= 1 && 2 <= 2
+			if(arr[i] <= arr[j]) tmp[t++] = arr[i++];											//(arr[0] <= arr[1] -> 4 <= 5) tmp[0++] = arr[0++] = 4		(arr[0] <= arr[2] -> 4 > 1
+			else tmp[t++] = arr[j++];															//															tmp[0++] = arr[2++] = 1
+		}																						//t = 1, i = 1												t = 1, j = 3
+		while(i <= q) tmp[t++] = arr[i++];														//(1 > 0)													(0 <= 1) tmp[1++] = arr[0++] = 4
+		while(j <= r) tmp[t++] = arr[j++];														//(1 <= 1) tmp[1++] = arr[1++] = 5							(3 > 2)
+		i = p; t = 0;																			//i = 0, t = 0 / j = 2										i = 0, t = 0
+		while(i <= r) {																			//(0 <= 1)							(1 <= 1)				(0 <= 2)					(1 <= 2)					(2 <= 2)
+			cnt++;																				//cnt = 1							cnt = 2					cnt = 3						cnt = 4						cnt = 5
 			if(cnt == k) {
 				answer = tmp[t];
 				break;
 			}
-			arr[i++] = tmp[t++];																//arr[0++] = tmp[0++] = 4			arr[1++] = tmp[1++] = 5
+			arr[i++] = tmp[t++];																//arr[0++] = tmp[0++] = 4			arr[1++] = tmp[1++] = 5	arr[0++] = tmp[0++] = 1		arr[1++] = tmp[1++] = 5		arr[2++] = tmp[2++] = 1
 		}
 	}
 	

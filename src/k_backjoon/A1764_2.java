@@ -15,16 +15,16 @@ class A1764_2 {
 		int m = Integer.parseInt(st.nextToken());
 		ArrayList<String> noHear = new ArrayList<>();
 		for(int i = 0; i < n; i++) noHear.add(br.readLine());
-		int cnt = 0;
+		int size = noHear.size();
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < m; i++) {
 			String noSee = br.readLine();
 			if(noHear.contains(noSee)) {
-				cnt++;
 				sb.append(noSee).append('\n');
+				noHear.remove(noSee);
 			}
 		}
-		System.out.println(cnt);
+		System.out.println(size - noHear.size());
 		System.out.println(sb);
 	}
 }
