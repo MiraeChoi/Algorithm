@@ -23,10 +23,12 @@ class A24060_3 {
 	
 	public static void merge(int p, int q, int r) {												//p = 0, q = 0, r = 1										p = 0, q = 1, r = 2
 		int i = p, j = q + 1, t = 0;															//i = 0, j = 0+1 = 1, t = 0									i = 0, j = 1+1 = 2, t = 0
+		System.out.println("p=" + p + ", q=" + q + ", r=" + r);
 		while(i <= q && j <= r) {																//0 <= 0 && 1 <= 1											0 <= 1 && 2 <= 2
 			if(arr[i] <= arr[j]) tmp[t++] = arr[i++];											//(arr[0] <= arr[1] -> 4 <= 5) tmp[0++] = arr[0++] = 4		(arr[0] <= arr[2] -> 4 > 1
 			else tmp[t++] = arr[j++];															//															tmp[0++] = arr[2++] = 1
 		}																						//t = 1, i = 1												t = 1, j = 3
+		System.out.println("t=" + t + ", i=" + i + ", j=" + j);
 		while(i <= q) tmp[t++] = arr[i++];														//(1 > 0)													(0 <= 1) tmp[1++] = arr[0++] = 4
 		while(j <= r) tmp[t++] = arr[j++];														//(1 <= 1) tmp[1++] = arr[1++] = 5							(3 > 2)
 		i = p; t = 0;																			//i = 0, t = 0 / j = 2										i = 0, t = 0
