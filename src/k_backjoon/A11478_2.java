@@ -19,7 +19,7 @@ public class A11478_2 {
 		Arrays.sort(arr);
 		for(int i = 0; i < len; i++) System.out.println(arr[i]);
 		for(int i = 1; i < len; i++) {
-			for(int j = 0; j < arr[i - 1].length(); j++) {
+			for(int j = 0; j < arr[i-1].length(); j++) {
 				if(arr[i-1].charAt(j) == arr[i].charAt(j)) lcp++;
 				else break;
 			}
