@@ -18,11 +18,15 @@ public class A11478_2 {
 		for(int i = 0; i < len; i++) arr[i] = str.substring(len - 1 - i);
 		Arrays.sort(arr);
 		for(int i = 0; i < len; i++) System.out.println(arr[i]);
+		System.out.println("------------------");
 		for(int i = 1; i < len; i++) {
+			System.out.println("i : " + i);
 			for(int j = 0; j < arr[i-1].length(); j++) {
+				System.out.println(arr[i-1].charAt(j) + " & " + arr[i].charAt(j));
 				if(arr[i-1].charAt(j) == arr[i].charAt(j)) lcp++;
 				else break;
 			}
+			System.out.println("--- ¡Úlcp : " + lcp);
 		}
 		int answer = (len * (len + 1) / 2 - lcp);
 		bw.write(answer + "");
