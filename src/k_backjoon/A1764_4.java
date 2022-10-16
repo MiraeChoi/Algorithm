@@ -10,17 +10,17 @@ import java.util.StringTokenizer;
 
 class A1764_4 {
 	public static void main(String[] args) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(in.readLine());
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		String[] noHear = new String[N];
-		for(int i = 0; i < N; i++) noHear[i] = in.readLine();
+		for(int i = 0; i < N; i++) noHear[i] = br.readLine();
 		Arrays.sort(noHear);
 		ArrayList<String> noSee = new ArrayList<>();
 		String name = "";
 		for(int i = 0; i < M; i++) {
-			name = in.readLine();
+			name = br.readLine();
 			if(Arrays.binarySearch(noHear, name) >= 0) noSee.add(name);
 		}
 		StringBuilder sb = new StringBuilder();
