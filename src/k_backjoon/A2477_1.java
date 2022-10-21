@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class A2477 {
+class A2477_1 {
 	//Æ²·È½À´Ï´Ù
 //	¹Ý·Ê :
 //	8
