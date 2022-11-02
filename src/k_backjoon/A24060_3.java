@@ -5,41 +5,56 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//5 7
-//4 5 1 3 2
+//맞았습니다!!
 class A24060_3 {
-	public static int[] arr, tmp;					//arr = {4 5 1 3 2}, tmp = {0 0 0 0 0}																	tmp = {4 5 0 0 0}																arr = {1 5 1 3 2}, tmp = {1 5 1 0 0}
-	public static int n, k, cnt = 0, answer = 0;
+	public static int[] arr, tmp;
+	public static int n, k, cnt = 0, answer = -1;
 	
-	public static void merge_sort(int p, int r) {	//p = 0, r = 5-1 = 4	p = 0, r = 2		p = 0, r = 1												p = 0, r = 2
+	public static void merge_sort(int p, int r) {
+		System.out.println("sort) p r : " + p + " " + r);
 		if(cnt > k) return;
-		if(p < r) {									//0 < 4					0 < 2				0 < 1
-			int q = (p + r) / 2;					//q = (0+4)/2 = 2		q = (0+2)/2 = 1		q = (0+1)/2 = 0
-			merge_sort(p, q);						//merge_sort(0, 2)		merge_sort(0, 1)	merge_sort(0, 0) -> return
-			merge_sort(q + 1, r);					//											merge_sort(0+1, 1) -> return								merge_sort(1+1, 2) -> return
-			merge(p, q, r);							//											merge(0, 0, 1)												merge(0, 1, 2)
+		if(p < r) {
+			int q = (p + r) / 2;
+			merge_sort(p, q);
+			merge_sort(q + 1, r);
+			merge(p, q, r);
 		}
 	}
 	
-	public static void merge(int p, int q, int r) {												//p = 0, q = 0, r = 1										p = 0, q = 1, r = 2
-		int i = p, j = q + 1, t = 0;															//i = 0, j = 0+1 = 1, t = 0									i = 0, j = 1+1 = 2, t = 0
-		System.out.println("p=" + p + ", q=" + q + ", r=" + r);
-		while(i <= q && j <= r) {																//0 <= 0 && 1 <= 1											0 <= 1 && 2 <= 2
-			if(arr[i] <= arr[j]) tmp[t++] = arr[i++];											//(arr[0] <= arr[1] -> 4 <= 5) tmp[0++] = arr[0++] = 4		(arr[0] <= arr[2] -> 4 > 1
-			else tmp[t++] = arr[j++];															//															tmp[0++] = arr[2++] = 1
-		}																						//t = 1, i = 1												t = 1, j = 3
-		System.out.println("t=" + t + ", i=" + i + ", j=" + j);
-		while(i <= q) tmp[t++] = arr[i++];														//(1 > 0)													(0 <= 1) tmp[1++] = arr[0++] = 4
-		while(j <= r) tmp[t++] = arr[j++];														//(1 <= 1) tmp[1++] = arr[1++] = 5							(3 > 2)
-		i = p; t = 0;																			//i = 0, t = 0 / j = 2										i = 0, t = 0
-		while(i <= r) {																			//(0 <= 1)							(1 <= 1)				(0 <= 2)					(1 <= 2)					(2 <= 2)
-			cnt++;																				//cnt = 1							cnt = 2					cnt = 3						cnt = 4						cnt = 5
+	public static void merge(int p, int q, int r) {
+		System.out.println("--------- merge ---------");
+		System.out.println("p q r : " + p + " " + q + " " + r);
+		int i = p;
+		int j = q + 1;
+		int t = 0;
+		while(i <= q && j <= r) {
+			if(arr[i] <= arr[j]) {
+				tmp[t] = arr[i];
+				i++;
+			} else {
+				tmp[t] = arr[j];
+				j++;
+			}
+			t++;
+		}
+		while(i <= q) tmp[t++] = arr[i++];
+		while(j <= r) tmp[t++] = arr[j++];
+		i = p;
+		t = 0;
+		while(i <= r) {
+			cnt++;
 			if(cnt == k) {
 				answer = tmp[t];
 				break;
-			}
-			arr[i++] = tmp[t++];																//arr[0++] = tmp[0++] = 4			arr[1++] = tmp[1++] = 5	arr[0++] = tmp[0++] = 1		arr[1++] = tmp[1++] = 5		arr[2++] = tmp[2++] = 1
+			} 
+			arr[i++] = tmp[t++];
 		}
+		System.out.print("arr[idx] : ");
+		for(int idx = 0; idx < arr.length; idx++) System.out.print(arr[idx] + " ");
+		System.out.print("\ntmp[idx] : ");
+		for(int idx = 0; idx < tmp.length; idx++) System.out.print(tmp[idx] + " ");
+		System.out.println();
+		System.out.println("-------------------------");
 	}
 	
 	public static void main(String[] args) throws IOException {
