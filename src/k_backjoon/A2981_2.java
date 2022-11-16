@@ -3,30 +3,46 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 class A2981_2 {
-	//시간 초과
+	//최대공약수 함수
+	static int gcd(int a, int b) {
+		while(b != 0) {
+			int r = a % b;
+			a = b;
+			b = r;
+		}
+		return a;
+	}
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		int[] arr = new int[N];
 		for(int i = 0; i < N; i++) arr[i] = Integer.parseInt(br.readLine());
-		int idx = 0;
-		int min = arr[0], max = arr[N-1];
+		Arrays.sort(arr);
+		int gcdVal = arr[1] - arr[0]; //음수가 되지 않음
+		//직전의 최대 공약수와 다음 수(arr[i] - arr[i-1])의 최대공약수를 갱신
+		for(int i = 2; i < N; i++) gcdVal = gcd(gcdVal, arr[i] - arr[i-1]);
 		StringBuilder sb = new StringBuilder();
-		out : for(int i = 2; i <= max; i++) {
-			int rem = min % i;
-			if(i > min && rem != min) {
-				idx++;
-				if(idx == N-1) break;
-				else min = arr[idx];
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		//최대공약수의 약수들 찾기(제곱근까지만 탐색)
+		for(int i = 2; i <= Math.sqrt(gcdVal); i++) {
+			//제곱근이 gcdVal의 약수라면 중복 추가를 방지하기 위해 한 번만 추가
+			if(i * i == gcdVal) list.add(i);
+			//i가 최대공약수의 약수라면 i와 나눈 몫 추가 
+			else if(gcdVal % i == 0) {
+				list.add(i);
+				list.add(gcdVal / i);
 			}
-			for(int j = 1; j < N; j++) {
-				if(arr[j] % i != rem) continue out;
-			}
-			sb.append(i).append(' ');
 		}
-		System.out.println("6 % 10 = " + (6 % 10));
+		Collections.sort(list);
+		for(int val : list) sb.append(val).append(' ');
+		sb.append(gcdVal);
+		//마지막 최대공약수 꼭 출력해야 함
 		System.out.println(sb);
 	}
 }
