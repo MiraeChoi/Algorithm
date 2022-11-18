@@ -3,6 +3,22 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+class Wear9375 implements Comparable<Wear9375> {
+	String name, type;
+	
+	public Wear9375(String name, String type) {
+		this.name = name;
+		this.type = type;
+	}
+
+	@Override
+	public int compareTo(Wear9375 o) {
+		return 0;
+	}
+}
 
 class A9375 {
 	public static void main(String[] args) throws IOException {
@@ -11,11 +27,13 @@ class A9375 {
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < testcase; i++) {
 			int n = Integer.parseInt(br.readLine());
-			String[] wear = new String[n];
+			ArrayList<Wear9375> arr = new ArrayList<>();
 			int answer = 0;
 			for(int j = 0; j < n; j++) {
-				wear[j] = br.readLine();
-				
+				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+				String name = st.nextToken();
+				String type = st.nextToken();
+				arr.add(new Wear9375(name, type));
 			}
 			sb.append(answer).append('\n');
 		}
