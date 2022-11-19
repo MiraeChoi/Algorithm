@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class A3036_1 {
-	//틀렸습니다
+	//맞았습니다!!
 	public static int[] divisor(int a, int b) {
 		int[] divisors = new int[2];
+		divisors[0] = a; divisors[1] = b;
 		if(a % b == 0) {
 			divisors[0] = a / b;
 			divisors[1] = 1;
