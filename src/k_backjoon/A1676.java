@@ -11,8 +11,11 @@ class A1676 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		long sum = 1;
-		for(int i = N; i >= 1; i--) sum *= i;
-		BigInteger big = new BigInteger(sum + "");
+		BigInteger big;
+		for(int i = N; i >= 1; i--) {
+//			big = new BigInteger((Integer.parseInt(big) * i) + "");
+			sum *= i;
+		}
 		String str = sum + "";
 		int answer = 0;
 		System.out.println("sum : " + sum);
