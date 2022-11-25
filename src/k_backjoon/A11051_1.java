@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class A11051 {
+class A11051_1 {
 	//Æ²·È½À´Ï´Ù
 	static double[][] arr;
 	
