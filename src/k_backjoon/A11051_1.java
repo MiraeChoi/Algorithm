@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 class A11051_1 {
 	//Æ²·È½À´Ï´Ù
+	//¹Ý·Ê : 1000 259
 	static int[][] arr;
 	
 	public static void main(String[] args) throws IOException {
