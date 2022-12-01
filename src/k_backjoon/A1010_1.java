@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class A1010 {
+public class A1010_1 {
 	private static int factorial(int n) {
 		int answer = 1;
-		for(int i = n; i >= 2; i--) answer = n * i;
+		for(int i = n; i >= 2; i--) answer *= i;
 		return answer;
 	}
 	
@@ -19,12 +19,12 @@ public class A1010 {
 		StringTokenizer st;
 		for(int i = 0; i < T; i++) {
 			st = new StringTokenizer(br.readLine());
-			int M = Integer.parseInt(st.nextToken());
 			int N = Integer.parseInt(st.nextToken());
-			if(M == N) sb.append(1).append('\n');
-			else if(M == 1) sb.append(N).append('\n');
+			int M = Integer.parseInt(st.nextToken());
+			if(N == M) sb.append(1).append('\n');
 			else if(N == 1) sb.append(M).append('\n');
-			else sb.append(factorial(M - N)).append('\n');
+			else if(M == 1) sb.append(N).append('\n');
+			else sb.append(factorial(M - N - 5) * 2).append('\n');
 		}
 		System.out.println(sb);
 	}
