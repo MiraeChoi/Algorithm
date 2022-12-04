@@ -33,7 +33,11 @@ class A9375 {
 				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 				String name = st.nextToken();
 				String type = st.nextToken();
-				arr.add(new Wear9375(name, type));
+				int cnt = 1;
+				for(int k = 0; k < arr.size(); k++) {
+					if(type.equals(arr.get(k).type)) cnt++;
+				}
+//				arr.add(new Wear9375(cnt, type));
 			}
 			sb.append(answer).append('\n');
 		}
