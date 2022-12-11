@@ -14,8 +14,20 @@ class A2805_2 {
 		int[] arr = new int[N];
 		st = new StringTokenizer(br.readLine(), " ");
 		int answer = 0;
+		int MAX = Integer.MIN_VALUE;
 		for(int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
+			MAX = Math.max(MAX, arr[i]);
+		}
+		for(int i = MAX; i >= 1; i--) {
+			int cnt = 0;
+			for(int j = 0; j < N; j++) {
+				if(arr[j] - i > 0) cnt += arr[j] - i;
+			}
+			if(cnt >= M) {
+				answer = i;
+				break;
+			}
 		}
 		System.out.println(answer);
 	}
