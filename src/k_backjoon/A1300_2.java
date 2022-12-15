@@ -12,11 +12,12 @@ class A1300_2 {
 		int k = Integer.parseInt(br.readLine());
 		int idx = 1;
 		while(k > 0) {
-			for(int i = idx; i >= 1; ) {
+			out : for(int i = idx; i >= 1; ) {
 				int cur = i;
 				for(int j = 1; j <= cur; j++) {
 					while(i > N || j > N) {
 						i--; j++;
+						if(j > cur) continue out;
 					}
 					k--;
 					if(k == 0) {
