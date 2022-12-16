@@ -15,10 +15,10 @@ class A1300_2 {
 			out : for(int i = idx; i >= 1; ) {
 				int cur = i;
 				for(int j = 1; j <= cur; j++) {
-					while(i > N || j > N) {
+					while(i > N) {
 						i--; j++;
-						if(j > cur) continue out;
 					}
+					while(j > N) break out;
 					k--;
 					if(k == 0) {
 						System.out.println(i * j);
