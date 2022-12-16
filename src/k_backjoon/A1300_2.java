@@ -10,18 +10,18 @@ class A1300_2 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		int k = Integer.parseInt(br.readLine());
-		int idx = 1;
+		double idx = 1;
 		while(k > 0) {
-			out : for(int i = idx; i >= 1; ) {
-				int cur = i;
-				for(int j = 1; j <= cur; j++) {
+			out : for(double i = idx; i >= 1; ) {
+				double cur = i;
+				for(double j = 1; j <= cur; j++) {
 					while(i > N) {
 						i--; j++;
 					}
 					while(j > N) break out;
 					k--;
 					if(k == 0) {
-						System.out.println(i * j);
+						System.out.printf("%.0f", i * j);
 						return;
 					}
 					i--;
