@@ -6,39 +6,32 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class A1654_2 {
-	//Æ²·È½À´Ï´Ù
+	//2 2
+	//1
+	//10
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-		int K = Integer.parseInt(st.nextToken());
-		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());	//K = 2
+		int N = Integer.parseInt(st.nextToken());	//N = 2
 		int[] arr = new int[K];
-		int cm = Integer.MIN_VALUE;
+		long max = Integer.MIN_VALUE;
 		for(int i = 0; i < K; i++) {
 			arr[i] = Integer.parseInt(br.readLine());
-			cm = Math.max(cm, (int)arr[i]);
+			max = Math.max(max, arr[i]);
 		}
-		int answer = -1;
-		if(N > 1) {
-			for(int i = 1; i <= cm; i++) {
-				int cnt = 0;
-				for(int j = 0; j < K; j++) {
-					int tmp = arr[j];
-					while(true) {
-						if(tmp < i || tmp == 1) break;
-						cnt++;
-						tmp /= (i + 1);
-						System.out.println("tmp : " + tmp + " / " + j);
-						
-						if(cnt > N) break;
-					}
-				}
-				System.out.println("cnt & i : " + cnt + " & " + i);
-				if(cnt < N) break;
-				if(i > answer) answer = i;
-				System.out.println("-----------¡Úanswer : " + answer);
+		max++;										//max = 11
+		long min = 0, mid = 0;
+		while(min < max) {							//0 < 11		6 < 11			6 < 8		6 < 7
+			mid = (min + max) / 2;					//mid = 5		mid = 8			mid = 7		mid = 6
+			long cnt = 0;
+			for(int i = 0; i < arr.length; i++) {
+				cnt += arr[i] / mid;				//cnt = 0 + 2	cnt = 0 + 1		cnt = 1		cnt = 1
 			}
-		} else answer = cm;
-		System.out.println(answer);
+			if(cnt < N) max = mid;					//				max = 8			max = 7		max = 6
+			else min = mid + 1;						//min = 6
+			System.out.println(cnt + " / " + mid);
+		}
+		System.out.println(min - 1);				//											min - 1 = 5
 	}
 }
