@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class A2805_2 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
@@ -22,7 +23,7 @@ class A2805_2 {
         int min = 0, mid = 0;
         while(min < max) {
             mid = (min + max) / 2;
-            int cnt = 0;
+            long cnt = 0;
             for(int i = 0; i < arr.length; i++) {
             	if(arr[i] - mid > 0) cnt += (arr[i] - mid);
             }
