@@ -13,22 +13,22 @@ class A2805_2 {
 		int M = Integer.parseInt(st.nextToken());
 		int[] arr = new int[N];
 		st = new StringTokenizer(br.readLine(), " ");
-		int answer = 0;
-		int MAX = Integer.MIN_VALUE;
+		int max = Integer.MIN_VALUE;
 		for(int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
-			MAX = Math.max(MAX, arr[i]);
+			max = Math.max(max, arr[i]);
 		}
-		for(int i = MAX; i >= 1; i--) {
-			int cnt = 0;
-			for(int j = 0; j < N; j++) {
-				if(arr[j] - i > 0) cnt += arr[j] - i;
-			}
-			if(cnt >= M) {
-				answer = i;
-				break;
-			}
+		max++;
+        int min = 0, mid = 0;
+        while(min < max) {
+            mid = (min + max) / 2;
+            int cnt = 0;
+            for(int i = 0; i < arr.length; i++) {
+            	if(arr[i] - mid > 0) cnt += (arr[i] - mid);
+            }
+			if(cnt < M) max = mid;
+            else min = mid + 1;
 		}
-		System.out.println(answer);
+		System.out.println(min - 1);
 	}
 }
