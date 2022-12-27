@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.PriorityQueue;
 
 class A1927 {
+	//맞았습니다!!
 	static int readInt() throws IOException {
 		int n = 0;
 		while(true) {
