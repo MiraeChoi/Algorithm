@@ -2,7 +2,7 @@ package k_backjoon;
 
 import java.io.IOException;
 
-class A15469_3 {
+class A15649_3 {
 	static int N, M;
 	static boolean[] check;
 	static int[] arr;
