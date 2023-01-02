@@ -13,7 +13,8 @@ class A15652 {
 			sb.append('\n');
 		} else {
 			for(int i = 0; i < N; i++) {
-				arr[L] = i + 1;
+				if(L == 0) arr[L] = i + 1;
+				else if(L > 0 && i + 1 >= arr[L-1]) arr[L] = i + 1;
 				DFS(L + 1);
 			}
 			idx++;
