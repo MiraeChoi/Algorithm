@@ -3,6 +3,7 @@ package k_backjoon;
 import java.io.IOException;
 
 class A15650 {											//★				◆			●			♬				●			♬				◆			○			♬				◆			★			◎			▣			♪				◎			◈
+	//맞았습니다!!
 	static int N, M;									//N=4, M=3
 	static int[] arr;									//arr={}		arr={1}		arr={1,2}	arr={1,2,3}		arr={1,2}	arr={1,2,4}		arr={1}		arr={1,3}	arr={1,3,4}		arr={1}		arr={}		arr={2}		arr={2,3}	arr={2,3,4}		arr={2}		arr={2,4}	arr={}		arr={3}
 	static StringBuilder sb = new StringBuilder();

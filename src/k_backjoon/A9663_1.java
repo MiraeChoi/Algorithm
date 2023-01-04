@@ -2,7 +2,7 @@ package k_backjoon;
 
 import java.io.IOException;
 
-class A9663 {
+class A9663_1 {
 	static int N, answer = 0;
 	static int[][] chess;
 	

@@ -3,21 +3,21 @@ package k_backjoon;
 import java.io.IOException;
 
 class A15652 {
-	static int N, M, idx = 0;
+	//맞았습니다!!
+	static int N, M;
 	static int[] arr;
 	static StringBuilder sb = new StringBuilder();
 	
-	private static void DFS(int L) {
+	private static void DFS(int idx, int L) {
 		if(L == M) {
 			for(int x : arr) sb.append(x).append(' ');
 			sb.append('\n');
 		} else {
-			for(int i = 0; i < N; i++) {
-				if(L == 0) arr[L] = i + 1;
-				else if(L > 0 && i + 1 >= arr[L-1]) arr[L] = i + 1;
-				DFS(L + 1);
+			for(int i = idx; i < N; i++) {
+				arr[L] = i + 1;
+				DFS(i, L + 1);
+				idx++;
 			}
-			idx++;
 		}
 	}
 	
@@ -25,7 +25,7 @@ class A15652 {
 		N = readInt();
 		M = readInt();
 		arr = new int[M];
-		DFS(0);
+		DFS(0, 0);
 		System.out.println(sb);
 	}
 	
