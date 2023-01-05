@@ -13,18 +13,17 @@ class A2580_2 {
 			for(int i = 0; i < sudoku.length; i++) {
 				if(sudoku[L][i] > 0) arr[sudoku[L][i]]++;
 				else {
-					canDo(L);
+					findNum(i);
 					solution(L + 1);
 				}
 			}
 		}
 	}
 	
-	private static boolean canDo(int col) {
+	private static void findNum(int idx) {
 		for(int i = 0; i < sudoku.length; i++) {
-			
+			if(arr[i] == 0) sudoku[idx][i] = idx;
 		}
-		return true;
 	}
 	
 	public static void main(String[] args) throws IOException {
