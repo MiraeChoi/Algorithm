@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class A14888 {
+class A14888_1 {
 	private static int N;
 	private static int[] arr;
 	private static int[] op = new int[4];
