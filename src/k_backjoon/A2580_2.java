@@ -6,15 +6,15 @@ class A2580_2 {
 	private static int[] arr = new int[9];
 	private static int[][] sudoku = new int[9][9];
 	
-	private static void solution(int L) {
-		if(L == sudoku.length) {
+	private static void solution(int row, int col) {
+		if(col == sudoku.length) {
 			
 		} else {
 			for(int i = 0; i < sudoku.length; i++) {
-				if(sudoku[L][i] > 0) arr[sudoku[L][i]]++;
+				if(sudoku[col][i] > 0) arr[sudoku[col][i]]++;
 				else {
-					findNum(0, i, L);
-					solution(L + 1);
+					findNum(0, i, col);
+					solution(row, col + 1);
 				}
 			}
 		}
@@ -22,8 +22,18 @@ class A2580_2 {
 	
 	private static boolean findNum(int row, int col, int num) {
 		for(int i = 0; i < 9; i++) {
-			if(sudoku[i][col] == num) {
-				return false;
+			if(sudoku[row][i] == num) return false;
+		}
+		for(int i = 0; i < 9; i++) {
+			if(sudoku[i][col] == num) return false;
+		}
+		
+		int curRow = row / 3 * 3;
+		int curCol = col / 3 * 3;
+		
+		for(int i = curRow; i < curRow + 3; i++) {
+			for(int j = curCol; j < curCol + 3; j++) {
+				if(sudoku[i][j] == num) return false;
 			}
 		}
 		return true;
@@ -35,7 +45,7 @@ class A2580_2 {
 				sudoku[i][j] = readInt();
 			}
 		}
-		solution(0);
+		solution(0, 0);
 		for(int i = 0; i < sudoku.length; i++) {
 			for(int j = 0; j < sudoku.length; j++) {
 				System.out.print(sudoku[i][j] + " ");
