@@ -1,23 +1,37 @@
 package k_backjoon;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 class A2580_2 {
-	private static int[] arr = new int[9];
 	private static int[][] sudoku = new int[9][9];
 	
 	private static void solution(int row, int col) {
 		if(col == sudoku.length) {
-			
-		} else {
+			solution(row + 1, 0);
+			return;
+		}
+		if(row == sudoku.length) {
 			for(int i = 0; i < sudoku.length; i++) {
-				if(sudoku[col][i] > 0) arr[sudoku[col][i]]++;
-				else {
-					findNum(0, i, col);
+				for(int j = 0; j < sudoku.length; j++) {
+					System.out.print(sudoku[i][j] + " ");
+				}
+				System.out.println();
+			}
+			System.exit(0);
+		}
+		if(sudoku[row][col] == 0) {
+			for(int i = 1; i <= sudoku.length; i++) {
+				if(findNum(row, col, i)) {
+					sudoku[row][col] = i;
 					solution(row, col + 1);
 				}
 			}
+			sudoku[row][col] = 0;
 		}
+		solution(row, col + 1);
 	}
 	
 	private static boolean findNum(int row, int col, int num) {
@@ -40,18 +54,15 @@ class A2580_2 {
 	}
 	
 	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
 		for(int i = 0; i < sudoku.length; i++) {
+			st = new StringTokenizer(br.readLine(), " ");
 			for(int j = 0; j < sudoku.length; j++) {
-				sudoku[i][j] = readInt();
+				sudoku[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
 		solution(0, 0);
-		for(int i = 0; i < sudoku.length; i++) {
-			for(int j = 0; j < sudoku.length; j++) {
-				System.out.print(sudoku[i][j] + " ");
-			}
-			System.out.println();
-		}
 	}
 	
 	private static int readInt() throws IOException {
