@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class A2580_2 {
+	//맞았습니다!!
 	private static int[][] sudoku = new int[9][9];
 	
 	private static void solution(int row, int col) {
@@ -30,6 +31,7 @@ class A2580_2 {
 				}
 			}
 			sudoku[row][col] = 0;
+			return;
 		}
 		solution(row, col + 1);
 	}
@@ -63,14 +65,5 @@ class A2580_2 {
 			}
 		}
 		solution(0, 0);
-	}
-	
-	private static int readInt() throws IOException {
-		int n = 0;
-		while(true) {
-			int input = System.in.read();
-			if(input <= 32) return n;
-			else n = (n << 3) + (n << 1) + (input & 15);
-		}
 	}
 }
