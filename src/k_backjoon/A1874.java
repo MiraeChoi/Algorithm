@@ -15,8 +15,19 @@ class A1874 {
 		int idx = 1;
 		Stack<Integer> stack = new Stack<>();
 		stack.add(idx);
+		int cur = 0;
 		while(!stack.isEmpty()) {
-			
+			for(int i = 1; i <= n; i++) {
+				if(arr[cur] != i) {
+					stack.push(arr[cur]);
+					sb.append('+').append('\n');
+				}
+				else {
+					stack.pop();
+					sb.append('-').append('\n');
+				}
+			}
+			cur++;
 		}
 		System.out.println(sb);
 	}
