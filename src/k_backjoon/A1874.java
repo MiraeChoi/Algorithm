@@ -25,19 +25,19 @@ class A1874 {
 					System.out.println("pop : " + stack.peek());
 					stack.pop();
 					idx++;
-					if(idx > n) break;
+					if(idx >= n) break;
 					cur = arr[idx];
 					System.out.println("cur : " + cur);
 					sb.append('-').append('\n');
 				}
 			}
 		}
-		for(int i = idx; i < n; i++) {
-			if(stack.pop() != arr[i]) {
-				System.out.println("NO");
-				return;
-			} else sb.append('-').append('\n');
-		}
+//		for(int i = idx; i < n; i++) {
+//			if(stack.pop() != arr[i]) {
+//				System.out.println("NO");
+//				return;
+//			} else sb.append('-').append('\n');
+//		}
 		System.out.println(sb);
 //		while(true) {
 //			if(num > n) {
