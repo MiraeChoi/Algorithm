@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-class A1874 {
+class A1874_1 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
@@ -15,7 +16,6 @@ class A1874 {
 		Stack<Integer> stack = new Stack<>();
 		int idx = 0;
 		int cur = arr[idx];
-		stack.push(1);
 		for(int i = 1; i <= n; i++) {
 			System.out.println("push : " + i);
 			stack.push(i);
@@ -25,47 +25,14 @@ class A1874 {
 					System.out.println("pop : " + stack.peek());
 					stack.pop();
 					idx++;
+					sb.append('-').append('\n');
 					if(idx >= n) break;
 					cur = arr[idx];
 					System.out.println("cur : " + cur);
-					sb.append('-').append('\n');
 				}
 			}
 		}
-//		for(int i = idx; i < n; i++) {
-//			if(stack.pop() != arr[i]) {
-//				System.out.println("NO");
-//				return;
-//			} else sb.append('-').append('\n');
-//		}
-		System.out.println(sb);
-//		while(true) {
-//			if(num > n) {
-//				while(!stack.isEmpty() && stack.peek() != cur) {
-//					if(stack.peek() == cur) {
-//						stack.pop();
-//						sb.append('-').append('\n');
-//					} else {
-//						idx++;
-//						if(idx >= n) break;
-//						else cur = arr[idx];
-//					}
-//				}
-//				if(stack.isEmpty()) possible = true;
-//				break;
-//			}
-//			if(stack.peek() == cur) {
-//				stack.pop();
-//				sb.append('-').append('\n');
-//			} else {
-//				stack.push(num);
-//				num++;
-//				sb.append('+').append('\n');
-//			}
-//			idx++;
-//			if(idx < n) cur = arr[idx];
-//		}
-//		if(possible) System.out.println(sb);
-//		else System.out.println("NO");
+		if(!stack.isEmpty()) System.out.println("NO");
+		else System.out.println(sb);
 	}
 }
