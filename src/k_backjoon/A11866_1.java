@@ -2,12 +2,12 @@ package k_backjoon;
 
 import java.io.IOException;
 
-class A11866 {
+class A11866_1 {
+	//맞았습니다!!
 	private static int[] arr;
 	private static boolean[] ch;
 	private static int N, K;
 	
-	//3번째부터 오류. cnt 상승 x
 	private static int curK(int idx) {
 		idx++;
 		if(idx == N) idx = 0;
@@ -18,11 +18,6 @@ class A11866 {
 			idx++;
 		}
 		idx--;
-		for(int i = 0; i < N; i++) {
-			if(!ch[i]) System.out.print(arr[i] + " ");
-		}
-		System.out.println();
-		System.out.println("idx : " + idx);
 		ch[idx] = true;
 		return idx;
 	}
@@ -34,12 +29,13 @@ class A11866 {
 		for(int i = 0; i < N; i++) arr[i] = i + 1;
 		StringBuilder sb = new StringBuilder();
 		sb.append('<');
-		int cur = K - 1;
+		int cur = K- 1;
 		ch[cur] = true;
 		for(int i = 0; i < N; i++) {
-			sb.append(cur).append(',').append(' ');
+			sb.append(arr[cur]);
+			if(i == N-1) break;
+			sb.append(',').append(' ');
 			cur = curK(cur);
-			System.out.println("확인 : " + i);
 		}
 		sb.append('>');
 		System.out.print(sb);
