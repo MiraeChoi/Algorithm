@@ -12,9 +12,11 @@ class A1021 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		int M = Integer.parseInt(br.readLine());
-		Queue<Integer> Q = new LinkedList<>();
+		int[] Q = new int[N];
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		for(int i = 0; i < M; i++) Q.offer(Integer.parseInt(st.nextToken()));
-		
+		for(int i = 0; i < M; i++) Q[i] = Integer.parseInt(st.nextToken());
+		while(true) {
+			
+		}
 	}
 }
