@@ -3,47 +3,42 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
 
 class A10866 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
-		int[] dQ = new int[10000];
+		LinkedList<Integer> Deque = new LinkedList<>();
 		StringBuilder sb = new StringBuilder();
-		int startIdx = 0, curIdx = 0;
 		while(N-- > 0) {
 			String str = br.readLine();
-			if(str.startsWith("push")) {
-				str = str.substring(5, str.length());
-				int num = 0;
-				if(str.startsWith("front")) {
-					num = Integer.parseInt(str.substring(10, str.length()));
-				}
-				else if(str.startsWith("back")) {
-					num = Integer.parseInt(str.substring(9, str.length()));
-				}
-				dQ[curIdx++] = num;
-			} else if(str.startsWith("pop")) {
-				str = str.substring(4, str.length());
-				if(str.startsWith("front")) {
-					sb.append(curIdx - startIdx == 0 ? -1 : dQ[0]).append('\n');
-				}
-				else if(str.startsWith("back")) {
-					sb.append(curIdx - startIdx == 0 ? -1 : dQ[curIdx--]).append('\n');
-				}
+			int num;
+			if(str.startsWith("push_front")) {
+				num = Integer.parseInt(str.substring(11, str.length()));
+				Deque.offerFirst(num);
+			} else if(str.startsWith("push_back")) {
+				num = Integer.parseInt(str.substring(10, str.length()));
+				Deque.offerLast(num);
+			} else if(str.startsWith("pop_front")) {
+				sb.append(Deque.size() == 0 ? -1 : Deque.pollFirst()).append('\n');
+			} else if(str.startsWith("pop_back")) {
+				sb.append(Deque.size() == 0 ? -1 : Deque.pollLast()).append('\n');
 			} else {
+				int size = Deque.size();
 				switch(str) {
 				case "size" :
-					sb.append(curIdx - startIdx).append('\n');
+					sb.append(size).append('\n');
 					break;
 				case "empty" :
-					sb.append(curIdx - startIdx == 0 ? 1 : 0).append('\n');
+					sb.append(size == 0 ? 1 : 0).append('\n');
 					break;
 				case "front" : 
-					sb.append(curIdx - startIdx == 0 ? -1 : dQ[startIdx]).append('\n');
+					sb.append(size == 0 ? -1 : Deque.getFirst()).append('\n');
 					break;
 				case "back" : 
-					sb.append(curIdx - startIdx == 0 ? -1 : dQ[curIdx - 1]).append('\n');
+					sb.append(size == 0 ? -1 : Deque.getLast()).append('\n');
 					break;
 				}
 			}
