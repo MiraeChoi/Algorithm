@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 class A5430 {
-	//Ä¿¹ÔÇª½Ã ¾È Çß¾î¿ë
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
