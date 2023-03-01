@@ -3,18 +3,19 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 
-class A5430 {
+class A5430_1 {
+	//시간 초과
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
 		StringBuilder sb = new StringBuilder();
-		while(T-- > 0) {
+		wh : while(T-- > 0) {
 			String fx = br.readLine();
 			int n = Integer.parseInt(br.readLine());
-			int[] arr = new int[n];
-			Arrays.fill(arr, -1);
+			LinkedList<Integer> dQ = new LinkedList<>();
 			String str = br.readLine();
 			int idx = 1;
 			for(int i = 0; i < n; i++) {
@@ -27,15 +28,29 @@ class A5430 {
 						break;
 					}
 				}
-				arr[i] = Integer.parseInt(num);
+				dQ.offer(Integer.parseInt(num));
 			}
 			for(int i = 0; i < fx.length(); i++) {
 				if(fx.charAt(i) == 'R') {
-					
+					Collections.reverse(dQ);
 				} else if(fx.charAt(i) == 'D') {
-					
+					if(dQ.isEmpty()) {
+						sb.append("error").append('\n');
+						continue wh;
+					} else {
+						dQ.poll();
+					}
 				}
 			}
+			sb.append('[');
+			int size = dQ.size();
+			for(int i = 0; i < size; i++) {
+				sb.append(dQ.poll());
+				if(i == size - 1) break;
+				sb.append(',');
+			}
+			sb.append(']').append('\n');
 		}
+		System.out.println(sb);
 	}
 }
