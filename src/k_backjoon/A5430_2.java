@@ -27,10 +27,11 @@ class A5430_2 {
 				}
 				dQ[i] = Integer.parseInt(num);
 			}
-			int[] tmp = new int[n];
+			boolean isRev = false;
 			for(int i = 0; i < fx.length(); i++) {
 				if(fx.charAt(i) == 'R') {
-					
+					if(isRev) isRev = false;
+					else isRev = true;
 				} else if(fx.charAt(i) == 'D') {
 					
 				}
