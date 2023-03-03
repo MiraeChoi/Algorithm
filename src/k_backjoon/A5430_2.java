@@ -3,8 +3,11 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.StringTokenizer;
 
 class A5430_2 {
+	//맞았습니다!!
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
@@ -12,20 +15,10 @@ class A5430_2 {
 		wh : while(T-- > 0) {
 			String fx = br.readLine();
 			int n = Integer.parseInt(br.readLine());
-			int[] dQ = new int[n];
-			String str = br.readLine();
-			int idx = 1;
+			LinkedList<Integer> dQ = new LinkedList<>();
+			StringTokenizer st = new StringTokenizer(br.readLine(), "[],");
 			for(int i = 0; i < n; i++) {
-				String num = "";
-				for(int j = idx; j < str.length(); j++) {
-					if(str.charAt(j) >= '1' && str.charAt(j) <= '9') {
-						num += str.charAt(j) + "";
-					} else {
-						idx = j + 1;
-						break;
-					}
-				}
-				dQ[i] = Integer.parseInt(num);
+				dQ.offer(Integer.parseInt(st.nextToken()));
 			}
 			boolean isRev = false;
 			for(int i = 0; i < fx.length(); i++) {
@@ -33,9 +26,21 @@ class A5430_2 {
 					if(isRev) isRev = false;
 					else isRev = true;
 				} else if(fx.charAt(i) == 'D') {
-					
+					if(dQ.isEmpty()) {
+						sb.append("error").append('\n');
+						continue wh;
+					}
+					if(isRev) dQ.pollLast();
+					else dQ.pollFirst();
 				}
 			}
+			sb.append('[');
+			while(dQ.size() > 0) {
+				if(isRev) sb.append(dQ.pollLast());
+				else sb.append(dQ.pollFirst());
+				if(dQ.size() > 0) sb.append(',');
+			}
+			sb.append(']').append('\n');
 		}
 		System.out.println(sb);
 	}
