@@ -10,7 +10,6 @@ class A9184_2 {
 	
 	private static int w(int a, int b, int c) {
 		if(a <= 0 || b <= 0 || c <= 0) return 1;
-		
 		//µ¿Àû°èÈ¹¹ı
 		return 0;
 	}
