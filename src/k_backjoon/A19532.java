@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class A19532 {
-	//런타임 에러 /by zero
+	//틀렸습니다
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
@@ -15,7 +15,16 @@ class A19532 {
 		int e = Integer.parseInt(st.nextToken());	int f = Integer.parseInt(st.nextToken());
 		int x = 0, y = 0;
 		int a1 = a, b1 = b, c1 = c, d1 = d, e1 = e, f1 = f;
-		if(a * d >= b * e) {
+		if(b == 0 && e == 0) {
+			x = c / a;
+			y = 0;
+		} else if(b == 0) {
+			x = c / a;
+			y = (f - d * x) / e;
+		} else if(e == 0) {
+			x = f / d;
+			y = (c - a * x) / b;
+		} else if(a * d >= b * e) {
 			int n1 = e;
 			int n2 = b;
 			System.out.println("n1 n2 : " + n1 + " / " + n2);
@@ -25,8 +34,6 @@ class A19532 {
 			else		 { a1 += d1; b1 += e1; c1 += f1; }
 			x = c1 / a1;
 			y = (c - a * x) / b;
-		} else {
-			
 		}
 		System.out.println(x + " " + y);
 	}
