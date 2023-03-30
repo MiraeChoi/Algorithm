@@ -14,6 +14,8 @@ class A19532_3 {
 		for(int i = 1; i < arr.length; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
+		//x = (e * c - b * f) / (a * e - b * d)
+		//y = -(d * c - a * f) / (a * e - b * d)
 		int x = (arr[5] * arr[3] - arr[2] * arr[6]) / (arr[1] * arr[5] - arr[2] * arr[4]);
 		int y = -(arr[4] * arr[3] - arr[1] * arr[6]) / (arr[1] * arr[5] - arr[2] * arr[4]);
 		System.out.println(x + " " + y);
