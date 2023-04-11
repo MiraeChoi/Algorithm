@@ -12,7 +12,6 @@ import java.util.Map.Entry;
 import java.util.StringTokenizer;
 
 class A20920 {
-	//4/9까지 커밋푸시 완료... 4/10에 다 풀자
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
