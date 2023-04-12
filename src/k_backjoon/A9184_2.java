@@ -6,12 +6,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 class A9184_2 {
-	private static int[] arr;
+	//런타임 에러
+	private static int[][][] dp;
 	
 	private static int w(int a, int b, int c) {
 		if(a <= 0 || b <= 0 || c <= 0) return 1;
-		//동적계획법
-		return 0;
+		if(dp[a][b][c] != 0) return dp[a][b][c];
+		if(a > 20 || b > 20 || c > 20) return dp[20][20][20] = w(20, 20, 20);
+		if(a < b && b < c) return dp[a][b][c] = w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c);
+		return w(a-1, b, c) + w(a-1, b-1, c) + w(a-1, b, c-1) - w(a-1, b-1, c-1);
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -22,12 +25,11 @@ class A9184_2 {
 			int a = Integer.parseInt(st.nextToken());
 			int b = Integer.parseInt(st.nextToken());
 			int c = Integer.parseInt(st.nextToken());
+			System.out.println(a + " / " + b + " / " + c);
 			if(a == -1 && b == -1 && c == -1) break;
-			int max = Math.max(a, Math.max(b, c));
-			arr = new int[max + 1];
-			w(a, b, c);
+			dp = new int[a+1][b+1][c+1];
 			sb.append("w(").append(a).append(", ").append(b).append(", ").append(c).append(") = ")
-				.append("내용 입력").append("\n");
+				.append(w(a, b, c)).append("\n");
 		}
 		System.out.println(sb);
 	}

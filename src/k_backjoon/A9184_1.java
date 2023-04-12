@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 class A9184_1 {
-	//재귀함수
+	//시간 초과
 	private static int w(int a, int b, int c) {
 		if(a <= 0 || b <= 0 || c <= 0) return 1;
 		if(a > 20 || b > 20 || c > 20) return w(20, 20, 20);
