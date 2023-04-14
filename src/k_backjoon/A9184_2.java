@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 class A9184_2 {
-	//런타임 에러
 	private static int[][][] dp;
 	
 	private static int w(int a, int b, int c) {
@@ -27,7 +26,7 @@ class A9184_2 {
 			int c = Integer.parseInt(st.nextToken());
 			System.out.println(a + " / " + b + " / " + c);
 			if(a == -1 && b == -1 && c == -1) break;
-			dp = new int[a+1][b+1][c+1];
+			dp = new int[21][21][21];
 			sb.append("w(").append(a).append(", ").append(b).append(", ").append(c).append(") = ")
 				.append(w(a, b, c)).append("\n");
 		}
