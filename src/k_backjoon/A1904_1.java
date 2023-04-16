@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-class A1904 {
+class A1904_1 {
+	//시간 초과
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
@@ -19,22 +20,16 @@ class A1904 {
 				str += Integer.toBinaryString(i);
 			}
 			int cnt = 0;
-			boolean zero = true;
+			boolean zero = false;
 			for(int j = 0; j < str.length(); j++) {
 				if(str.charAt(j) == '0') {
 					cnt++;
-					zero = false;
-					if(j == str.length() - 1) break;
-					if(str.charAt(j + 1) == '0') {
-						cnt++;
+					if(j < str.length() - 1 && str.charAt(j + 1) == '0') {
 						zero = true;
 					}
 				}
 			}
-			if(cnt % 2 == 0 && zero) {
-				System.out.println("str : " + str + " & " + cnt);
-				answer++;
-			}
+			if(cnt == 0 || (cnt % 2 == 0 && zero)) answer++;
 		}
 		System.out.println(answer);
 	}
