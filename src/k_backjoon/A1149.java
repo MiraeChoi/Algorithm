@@ -3,6 +3,7 @@ package k_backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class A1149 {
@@ -21,11 +22,28 @@ class A1149 {
 				house[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		int answer = 0;
+		int answer = Integer.MAX_VALUE;
+		boolean[] color = new boolean[3];
+		int c1 = 0, c2 = 0, c3 = 0;
 		for(int i = 0; i < house.length; i++) {
-			for(int j = 0; j < house[i].length; j++) {
-				
+			color[i] = true;
+			c1 = i;
+			for(int j = 0; j < 3; j++) {
+				if(color[j]) continue;
+				else {
+					color[j] = true;
+					c2 = j;
+				}
+				for(int k = 0; k < 3; k++) {
+					if(color[k]) continue;
+					else {
+						color[k] = true;
+						c3 = k;
+					}
+				}
 			}
+			answer = Math.min(answer, house[0][c1] + house[1][c2] + house[2][c3]);
+			Arrays.fill(color, false);
 		}
 		System.out.println(answer);
 	}
