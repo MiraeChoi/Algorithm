@@ -26,22 +26,42 @@ class A1149 {
 		boolean[] color = new boolean[3];
 		int c1 = 0, c2 = 0, c3 = 0;
 		for(int i = 0; i < house.length; i++) {
-			color[i] = true;
+			int idx = i;
 			c1 = i;
+			int n1 = -1, n2 = -1;
 			for(int j = 0; j < 3; j++) {
-				if(color[j]) continue;
-				else {
-					color[j] = true;
-					c2 = j;
-				}
-				for(int k = 0; k < 3; k++) {
-					if(color[k]) continue;
-					else {
-						color[k] = true;
-						c3 = k;
-					}
+				if(j != idx) {
+					if(n1 != -1) n2 = j;
+					else n1 = j;
 				}
 			}
+			c2 = Math.min(n1, n2);
+			idx = c2;
+			n1 = -1; n2 = -1;
+			for(int j = 0; j < 3; j++) {
+				if(j != idx) {
+					if(n1 != -1) n2 = j;
+					else n1 = j;
+				}
+			}
+			c3 = Math.min(n1, n2);
+//			color[i] = true;
+//			c1 = i;
+//			for(int j = 0; j < 3; j++) {
+//				if(color[j]) continue;
+//				else {
+//					color[j] = true;
+//					c2 = j;
+//				}
+//				for(int k = 0; k < 3; k++) {
+//					if(color[k]) continue;
+//					else {
+//						color[k] = true;
+//						c3 = k;
+//					}
+//				}
+//			}
+			System.out.println("c1 c2 c3 : " + house[0][c1] + " " + house[1][c2] + " " + house[2][c3]);
 			answer = Math.min(answer, house[0][c1] + house[1][c2] + house[2][c3]);
 			Arrays.fill(color, false);
 		}
