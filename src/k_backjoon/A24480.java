@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 class A24480 {
+	//맞았습니다!!
 	private static ArrayList<ArrayList<Integer>> arr = new ArrayList<>();
 	private static int[] visited;
 	private static int cnt = 1;
@@ -38,7 +39,7 @@ class A24480 {
 			arr.get(from).add(to);
 			arr.get(to).add(from);
 		}
-		for(int i = 0; i < arr.size(); i++) Collections.sort(arr.get(i));
+		for(int i = 0; i < arr.size(); i++) Collections.sort(arr.get(i), Collections.reverseOrder());
 		DFS(R);
 		StringBuilder sb = new StringBuilder();
 		for(int i = 1; i <= N; i++) sb.append(visited[i]).append('\n');
