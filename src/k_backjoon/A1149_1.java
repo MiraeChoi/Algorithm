@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-class A1149 {
+class A1149_1 {
 	//ex) N=3, »¡ÃÊÆÄ ¼øÀ¸·Î Áý1 26 40 83 / Áý2 49 60 57 / Áý3 13 89 99
 	//»¡ÃÊÆÄ »¡ÆÄÃÊ ÃÊ»¡ÆÄ ÃÊÆÄ»¡ ÆÄ»¡ÃÊ ÆÄÃÊ»¡
 	//»¡ÃÊ»¡ »¡ÆÄ»¡(V) ÃÊ»¡ÃÊ ÃÊÆÄÃÊ ÆÄ»¡ÆÄ ÆÄÃÊÆÄ

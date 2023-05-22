@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class A1932 {
-	//맞았습니다!!
+	//맞았습니다!! 5/23부터 새 걸로 커밋푸시해염 이건 5/22에 했음
 	private static int[][] arr;
 	private static Integer[][] dy;
 	private static int N;
