@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 class A10844 {
+	//맞았습니다!!
 	private static long mod = 1000000000;
 	
 	public static void main(String[] args) throws IOException {
