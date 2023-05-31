@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class A11053 {
-	//시간 초과
+class A11053_2 {
 	private static int[] arr;
 	private static Integer[] dy;
 	private static int max;
@@ -29,8 +28,6 @@ class A11053 {
 		for(int i = 0; i < N; i++) LIS(i);
 		max = dy[0];
 		for(int i = 1; i < N; i++) max = Math.max(max, dy[i]);
-//		for(int i = 0; i < N; i++) System.out.print(dy[i] + " ");
-//		System.out.println();
 		System.out.println(max);
 	}
 }
